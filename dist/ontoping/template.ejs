@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <% include ../head %>
+  <% include ../mosaico_script %>
+
+  <script type="text/javascript">
+    function addThumbnail() {
+
+    }
+  </script>
+</head>
+
+<body class="box-layout">
+  <!-- Preloader Start Here -->
+  <div id="preloader"></div>
+  <% include header_admin %>
+  <!-- Preloader End Here -->
+  <div id="wrapper" class="wrapper">
+
+
+    <section class="page-core">
+      <div class="container">
+        <div class="contact-form-wrap">
+
+		<div class="section-heading text-center heading-dark heading-layout2">
+            <div class="section m-0 pt-0">
+                    <div class="container clearfix">
+                        <div class="heading-block center" style="padding-bottom: 50px;">
+                        <h1 class="text-uppercase" style="color: #ffffff;">템플릿 디자인 관리</h1> </div>
+                    </div>
+             </div>
+
+            <table class="table" style="margin-left: auto; margin-right: auto; background-color: #f8f8f8;">
+              <thead>
+                <tr>
+                  <th style="width: 10%;">No.</th>
+                  <th style="width: 10%;">제목</th>
+                  <th style="width: 10%">무료/유료</th>
+                  <th style="width: 10%">카테고리</th>
+                  <th style="width: 20%">썸네일</th>
+                  <th style="width: 10%">템플릿 수정</th>
+                  <th style="width: 10%">삭제</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(let template of templates) { %>
+                    <tr>
+                      <td><%= template[0] %></td>
+                      <td><%= template[1] %></td>
+                      <td><%= template[2] %></td>
+                      <td><%= template[3] %></td>
+                      <td><img src="<%= template[4] %>"></td>
+                      <td> <button onclick="location.href='/ontoping/template/edit/<%= template[1] %>'" class="myBtn myBtn-3d myBtn-dark myBtn-sm">템플릿 수정</button></td>
+                      <td><button class="myBtn myBtn-3d myBtn-dark myBtn-sm">삭제</button></td>
+                    </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+    <% include ../footer_script %>
+
+
+  </body>
+
+  </html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/toping.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+<% include head %>
+<% include mosaico_script %>
+
+<script type="text/javascript">
+	function readNotice(id) {
+		document.location.href='/service/cs/'+id;
+	}
+</script>
+
+</head>
+
+<body>
+
+	<% include header %>
+
+
+
+
+
+        <!-- InstanceBeginEditable name="contents" -->
+
+
+	        <section id="content">
+			<div class="content-wrap">
+                <!-- ============ heading section ============ -->
+                <div class="section m-0 pt-0">
+                    <div class="container clearfix">
+                        <div class="heading-block center"><!-- InstanceBeginEditable name="EditRegion3" -->
+                            <h1 class="text-uppercase">1:1 문의게시판</h1>
+                            <p class="lead">Toping 서비스에 대한 궁금하신 점을 빠르고 친절하게 답변해 드립니다.</p>
+                        <!-- InstanceEndEditable --></div>
+                    </div>
+                </div><!-- /heading section -->
+			</div>
+
+
+           <div class="content-wrap">
+
+
+                <!-- ============ Contact section ============ -->
+                <div class="container clearfix">
+
+                    <div class="row">
+
+                        <div class="col-md-9">
+
+                            <div class="well b-0">
+
+								<!-- InstanceBeginEditable name="EditRegion2" -->
+
+
+                           <section class="tile">
+
+
+
+                                 <!-- tile body -->
+                                <div class="tile-body">
+                                    <div class="form-group text-right">
+                                        <select name="search-filter" style="height: 38px;">
+                                            <option value="title">제목</option>
+                                            <option value="title_contents">제목+내용</option>
+                                        </select>
+                                        <input id="filter" type="text" class="form-control input-sm w-sm mb-10 inline-block">
+                                        <button type="submit" class="myBtn myBtn-dark">검색</button>
+																				<button type="submit" class="myBtn myBtn-dark" onclick="location.href='../service/question'">문의하기</button>
+                                    </div>
+
+                                    <a href="/service/notice/1">
+																						</a><a href="/service/notice/2">
+																						</a><a href="/service/notice/3">
+																						</a><table id="searchTextResults" data-filter="#filter" data-page-size="5" class="table">
+                                        <colgroup>
+                                            <col style="width: 10%">
+                                            <col style="width: 50%">
+                                            <col style="width: 20%">
+                                            <col style="width: 20%">
+
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="text-left">번호</th>
+                                            <th class="text-left">제목</th>
+                                            <th class="text-left">작성일</th>
+                                            <th class="text-left">답변여부</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+																					<% for(let qna of qnas) { %>
+																						<a href="/service/cs/<%= qna.id %>">
+																						<tr onclick="readNotice(<%= qna.id %>)">
+																								<td class="text-left"><%= qna.id %></td>
+		                                            <td class="text-left"><%= qna.title %></td>
+		                                            <td class="text-left"><%= qna.createdAt %></td>
+																								<% if(qna.answer) { %>
+																                <td>답변완료</td>
+																                <%  } else { %>
+																                <td>미답변</td>
+																                <% } %>
+
+																						</tr>
+																						</a>
+																					<% } %>
+
+
+                                        </tbody>
+                                        <tfoot class="hide-if-no-paging">
+                                        <tr>
+                                            <td colspan="5" class="text-left">
+                                                <ul class="pagination"></ul>
+                                            </td>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /tile body -->
+
+
+                            </section>
+
+
+								<!-- InstanceEndEditable --></div>
+
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div>
+                           <div class="media">
+                                    <div class="media-left">
+                                        <i class="glyphicon glyphicon-headphones icon-circle"></i>
+                                    </div>
+                                    <div class="media-body" style="vertical-align: middle;">
+                                        <h3 class="text-uppercase" style="margin:0";>고객문의 센터</h3>
+                                    </div>
+                           </div>
+
+
+
+
+                                <address>
+                                    <strong class="block mt-20">문의전화:</strong>
+                                    대표: +82 55 714 1091<br>
+                                    팩스: +82 0505 320 2118
+
+                                    <strong class="block mt-20">E-mail [CS center] : <a href="mailto:on@toping.io"> on@toping.io</a><br></strong>
+
+                                    <div class="social mt-20 mb-30">
+                                        <a class="social-icon social-facebook" href="#">
+                                            <div class="front">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                            <div class="back">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                        </a>
+
+                                        <a class="social-icon social-twitter" href="#">
+                                            <div class="front">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                            <div class="back">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                        </a>
+
+                                        <a class="social-icon social-googleplus" href="#">
+                                            <div class="front">
+                                                <i class="fa fa-google-plus"></i>
+                                            </div>
+                                            <div class="back">
+                                                <i class="fa fa-google-plus"></i>
+                                            </div>
+                                        </a>
+
+                                        <a class="social-icon social-pinterest" href="#">
+                                            <div class="front">
+                                                <i class="fa fa-pinterest"></i>
+                                            </div>
+                                            <div class="back">
+                                                <i class="fa fa-pinterest"></i>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </address>
+
+								<hr>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<!-- <div class="sidebar-widget" style="margin-top: 30px;">
+
+                                <h3 class="text-bold text-uppercase">Best Sellers</h3>
+                                <ul class="media-list product-list">
+
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="assets/images/items/woman/1_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="product-detail.html">White T-Shirt</a></p>
+                                            <p class="price">$14.99</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="assets/images/items/woman/2_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="product-detail.html">Red T-Shirt</a></p>
+                                            <p class="price">$12.99</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="assets/images/items/woman/3_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="product-detail.html">Red T-Shirt</a></p>
+                                            <p class="price">$12.99</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="assets/images/items/woman/4_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="product-detail.html">Red T-Shirt</a></p>
+                                            <p class="price">$12.99</p>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div> -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- ============ /Contact section ============ -->
+
+
+
+
+
+
+
+			<div class="row">
+     				<script type="text/javascript">
+                            $(document).ready(function() {
+                                $('#new-arrivals').owlCarousel({
+                                    loop: true,
+                                    nav: true,
+                                    autoplay:true,
+                                    autoplayTimeout:8000,
+                                    autoplayHoverPause:true,
+                                    pagination: false,
+                                    navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                                    items : 4,
+                                    margin: 30,
+                                    responsive:{
+                                        0:{ items:1 },
+                                        600:{ items:2 },
+                                        1000:{ items:3 },
+                                        1200:{ items:4 }
+                                    }
+                                });
+                            }); //ready
+					</script>
+      		</div><!-- /row -->
+		</div> <!-- /container -->
+
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+            var cCarousel = $("#clients-carousel");
+            cCarousel.owlCarousel({
+                loop: true,
+                nav: false,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                pagination: false,
+                margin: 30,
+                responsive:{
+                    0:{ items:1 },
+                    600:{ items:2 },
+                    1000:{ items:4 },
+                    1200:{ items:5 },
+                    1400:{ items:6 }
+                            }
+                            });
+
+                    }); //ready
+                </script>
+
+
+
+        <script type="text/javascript">
+            function check_password(){
+                var question = prompt("1:1 문의내역을 확인하기 위해 비밀번호를 입력해주세요.","");
+                if (question == notice.password){
+                    // open 1:1 notice
+                }else{
+                    alert("비밀번호가 틀립니다.");
+                }
+
+                // http://shop.danawa.com/main/?controller=board&methods=getBoardList&boardSeq=194#2
+                // 다나와 견적 사이트 처럼 열람 권한 식으로 처리하는게 어떤가?
+                // user.id == notice.users.id 이런식으로 ..?
+
+
+
+            }
+        </script>
+
+
+
+
+    <% include footer %>
+
+    <% include footer_script %>
+
+</body>
+</html>

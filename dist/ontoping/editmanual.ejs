@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <% include ../head %>
+  <% include ../mosaico_script %>
+  <script>
+  function contactPost() {
+    document.getElementById('contact-form').submit();
+  }
+  </script>
+</head>
+
+<body class="box-layout">
+  <!-- Preloader Start Here -->
+  <div id="preloader"></div>
+  <% include header_admin %>
+  <!-- Preloader End Here -->
+  <div id="wrapper" class="wrapper">
+
+	  
+    <section class="page-core">
+      <div class="container">
+        <div class="contact-form-wrap">
+
+		<div class="section-heading text-center heading-dark heading-layout2" style=" text-align: left;">
+            <div class="section m-0 pt-0">
+                    <div class="container clearfix">
+                        <div class="heading-block center" style="padding-bottom: 50px;">
+                        <h1 class="text-uppercase" style="color: #ffffff;">메뉴얼 추가</h1> </div>
+                    </div>
+             </div>
+			
+		<div class="table" style="margin-left: auto; margin-right: auto; background-color: #f8f8f8; padding: 40px;">
+            <form action="/ontoping/manual/edit" class="wrap" id="form5" method="POST" enctype="multipart/form-data">
+
+                <div class="row" style="padding: 10px 20px;">
+                    <label for="category2">카테고리</label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="category2" value="editor_manual" required>&nbsp;&nbsp;에디터메뉴얼
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="category2" value="movie_manual">&nbsp;&nbsp;동영상메뉴얼
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="category2" value="image_editor">&nbsp;&nbsp;이미지에디터
+                </div>
+				<hr class="b-3x">
+				 <div class="row" style="padding: 10px 20px;">
+                    <div>
+                        <label for="manual_title">메뉴얼 제목</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="" name="manual_title" class="form-control input-sm w-sm mb-10 inline-block" style="width: 100%;">
+                    </div>
+                </div>
+				
+				
+				<div class="row" style="padding: 20px;">
+                    <div>
+                        <label for="manual_title">메뉴얼 설명</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="" name="manual_title" class="form-control input-sm w-sm mb-10 inline-block" style="width: 100%;">
+                    </div>
+                </div>
+
+                <div class="row" style="padding: 5px 20px;">
+                    <span class="myBtn myBtn-3d myBtn-dark myBtn-sm">섬네일 이미지</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="inline-block" type="file" accept=".png, .jpg, .jpeg" name="thumbnail_image"> 
+				</div>
+
+               <div class="row" style="padding: 5px 20px;">
+                    <span class="myBtn myBtn-3d myBtn-dark myBtn-sm">파일 첨부하기</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="inline-block" type="file" accept=".html" name="html_file">
+                </div>
+                
+            	</form>
+			</div>
+			
+			<button type="summit" class="myBtn">저장하기</button>
+        </div>
+
+      </div>
+	 </div>
+    </section>
+
+		
+    <!-- Search Box Start Here -->
+    <div id="header-search" class="header-search">
+      <button type="button" class="close">×</button>
+      <form class="header-search-form">
+        <input type="search" value="" placeholder="Type here........" />
+        <button type="submit" class="search-btn">
+          <i class="flaticon-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+  <% include ../footer_script %>
+
+
+</body>
+
+</html>

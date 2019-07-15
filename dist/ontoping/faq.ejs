@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <% include ../head %>
+  <% include ../mosaico_script %>
+
+  <script type="text/javascript">
+    function deleteFAQ(id) {
+      window.location.href="../ontoping/deletefaq/" + id;
+    }
+  </script>
+</head>
+
+<body class="box-layout">
+  <!-- Preloader Start Here -->
+  <div id="preloader"></div>
+  <% include header_admin %>
+  <!-- Preloader End Here -->
+  <div id="wrapper" class="wrapper">
+
+
+    <section class="page-core">
+      <div class="container">
+        <div class="contact-form-wrap">
+
+		<div class="section-heading text-center heading-dark heading-layout2">
+            <div class="section m-0 pt-0">
+                    <div class="container clearfix">
+                        <div class="heading-block center" style="padding-bottom: 50px;">
+                        <h1 class="text-uppercase" style="color: #ffffff;">FAQ 관리</h1> </div>
+                    </div>
+             </div>
+
+
+            <table class="table" style="margin-left: auto; margin-right: auto; background-color: #f8f8f8;">
+              <thead>
+                <tr>
+                  <th style="width: 8%;">No.</th>
+                  <th style="width: 25%;">제목</th>
+                  <th style="width: 32%">내용</th>
+                  <th style="width: 10%">카테고리</th>
+                  <th style="width: 10%">하위 번호</th>
+                  <th style="width: 35%">편집</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(let faq of faqs) { %>
+                  <tr>
+                    <td><%= faq.id %></td>
+                    <td><%= faq.title %></td>
+                    <td><%= faq.description %></td>
+                    <td><%= faq.category %></td>
+                    <td><%= faq.lowerCategory %></td>
+                    <td><button class="myBtn myBtn-3d myBtn-dark myBtn-sm" onclick="deleteFAQ(<%= faq.id %>)">삭제</button></td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+		  <button class="myBtn" onclick="location.href='/ontoping/faq/edit'">FAQ 작성</button>
+        </div>
+      </section>
+
+
+    </div>
+    <% include ../footer_script %>
+
+
+  </body>
+
+  </html>

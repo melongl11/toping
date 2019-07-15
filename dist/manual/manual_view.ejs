@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/toping.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+	<% include ../head %>
+	<% include ../mosaico_script %>
+
+
+	<script>
+	  function resizeIframe(obj) {
+	    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+	  }
+	</script>
+</head>
+
+<body>
+
+	<% include ../header %>
+
+
+
+
+
+	<!-- ============================================
+	=================== Content =====================
+	============================================= -->
+
+	<section id="content">
+
+		<div class="content-wrap">
+
+			<!-- ============ heading section ============ -->
+			<div class="section m-0 pt-0">
+				<div class="container clearfix">
+					<div class="heading-block center"><!-- InstanceBeginEditable name="EditRegion3" -->
+						<h1 class="text-uppercase">사용자 메뉴얼</h1>
+						<p class="lead">효과적인 활용을 위한 사용설명서입니다.</p>
+						<!-- InstanceEndEditable --></div>
+					</div>
+				</div><!-- /heading section -->
+
+
+				<div class="container clearfix">
+					<div class="content-wrap">
+						<div class="row">
+
+							<!-- Left contents-->
+							<!-- InstanceBeginEditable name="EditRegion1" -->
+
+							<!-- InstanceEndEditable --><!-- END SLeft contents -->
+
+
+
+							<!-- Right contents -->
+							<!-- InstanceBeginEditable name="EditRegion2" -->
+
+							<!-- ============================================
+							=================== Content =====================
+							============================================= -->
+
+							<div class="col-md-12 col-sm-12">
+
+								<div class="wrap">
+									<% for(let manual of manuals) { %>
+									<div class="portfolio-desc">
+											<h4><a href="#"><%= manual[0] %></a></h4>
+											<span><a href="#"><%= manual[1] %></a></span>
+									</div>
+									<iframe src="<%= manual[3] %>" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
+									<% } %>
+								</div>
+
+							</div><!-- /portfolio -->
+
+						</div>
+					</section><!-- #content end -->
+
+
+				</div><!-- #wrapper end -->
+
+
+
+				<div id="gotoTop" class="fa fa-angle-up hidden-md"></div>
+
+
+
+				<!-- ============================================
+				============== Vendor JavaScripts ===============
+				============================================= -->
+
+				<script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/superfish/js/superfish.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/jRespond/jRespond.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/smoothscroll/SmoothScroll.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/appear/jquery.appear.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/stellar/jquery.stellar.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/flexslider/jquery.flexslider-min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/magnific/jquery.magnific-popup.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/owl/owl.carousel.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/jflickrfeed/jflickrfeed.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/tweet-js/jquery.tweet.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/countTo/jquery.countTo.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/morrisjs/raphael-min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/morrisjs/morris.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/mixitup/jquery.mixitup.min.js"></script>
+
+
+				<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+				<script type="text/javascript" src="../assets/js/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+				<script type="text/javascript" src="../assets/js/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+				<!-- animsition js -->
+				<script src="../assets/js/vendor/animsition/js/jquery.animsition.min.js"></script>
+
+
+
+
+
+
+
+				<!-- ============================================
+				============== Custom JavaScripts ===============
+				============================================= -->
+
+
+				<script type="text/javascript" src="../assets/js/global.js"></script>
+
+
+				<!-- InstanceEndEditable -->
+				<!-- END Right contents--
+
+			</div> <!-- /row -->
+
+		</div>
+	</div> <!-- /container -->
+
+
+
+	<!-- ============ features section ============ -->                <!-- /features section -->
+
+
+
+	<!-- ============ clients carousel section ============ -->                <!-- /clients carousel section -->
+
+
+	<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		var cCarousel = $("#clients-carousel");
+
+		cCarousel.owlCarousel({
+			loop: true,
+			nav: false,
+			autoplay:true,
+			autoplayTimeout:3000,
+			autoplayHoverPause:true,
+			pagination: false,
+			margin: 30,
+			responsive:{
+				0:{ items:1 },
+				600:{ items:2 },
+				1000:{ items:4 },
+				1200:{ items:5 },
+				1400:{ items:6 }
+			}
+		});
+
+
+	}); //ready
+
+	</script>
+</div>
+</section><!-- #content end -->
+
+
+
+<!-- ============================================
+==================== Footer =====================
+============================================= -->        <!-- #footer end -->
+
+</div><!-- #wrapper end -->
+
+
+<!-- ============================================
+=================== Go to Top ===================
+============================================= -->
+
+<div id="gotoTop" class="fa fa-angle-up hidden-md"></div>
+
+
+
+<!-- ============================================
+============== Vendor JavaScripts ===============
+============================================= -->
+
+<script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/superfish/js/superfish.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/jRespond/jRespond.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/smoothscroll/SmoothScroll.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/appear/jquery.appear.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/stellar/jquery.stellar.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/flexslider/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/magnific/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/owl/owl.carousel.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/jflickrfeed/jflickrfeed.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/tweet-js/jquery.tweet.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/countTo/jquery.countTo.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/range-slider/js/plugin.js"></script>
+
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<script type="text/javascript" src="../assets/js/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="../assets/js/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+<!-- animsition js -->
+<script src="../assets/js/vendor/animsition/js/jquery.animsition.min.js"></script>
+
+
+
+<!-- ============================================
+============== Custom JavaScripts ===============
+============================================= -->
+
+
+<script type="text/javascript" src="../assets/js/global.js"></script>
+
+
+
+
+
+
+
+
+<div class="row">
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#new-arrivals').owlCarousel({
+			loop: true,
+			nav: true,
+			autoplay:true,
+			autoplayTimeout:8000,
+			autoplayHoverPause:true,
+			pagination: false,
+			navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+			items : 4,
+			margin: 30,
+			responsive:{
+				0:{ items:1 },
+				600:{ items:2 },
+				1000:{ items:3 },
+				1200:{ items:4 }
+			}
+		});
+	}); //ready
+	</script>
+</div><!-- /row -->
+</div> <!-- /container -->
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var cCarousel = $("#clients-carousel");
+	cCarousel.owlCarousel({
+		loop: true,
+		nav: false,
+		autoplay:true,
+		autoplayTimeout:3000,
+		autoplayHoverPause:true,
+		pagination: false,
+		margin: 30,
+		responsive:{
+			0:{ items:1 },
+			600:{ items:2 },
+			1000:{ items:4 },
+			1200:{ items:5 },
+			1400:{ items:6 }
+		}
+	});
+
+}); //ready
+</script>
+
+<% include ../footer %>
+
+<% include ../footer_script %>
+
+</body>
+</html>

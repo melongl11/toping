@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/toping.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+<% include ../head %>
+<% include ../mosaico_script %>
+
+</head>
+
+<body>
+
+<% include header_admin %>
+
+
+
+<!-- Page Wrapper -->
+
+<div id="wrapper" class="clearfix animsition">
+
+
+  <!-- Search Container -->
+
+  <div id="search-container" class="search-box-wrapper">
+    <div class="container">
+      <i class="fa fa-search"></i>
+      <div class="search-box">
+        <form action="https://toping.io/" class="search-form" role="search" >
+          <input type="search" name="s" value="" title="Press Enter to submit your search" placeholder="Search…" class="search-field">
+          <input type="submit" value="Search" class="search-submit">
+        </form>
+      </div>
+    </div>
+  </div><!--/ #search-container -->
+
+
+
+  <!-- Additional Navbar -->
+
+  <nav id="add-navbar">
+
+
+      </nav><!-- #add-navbar end -->
+
+
+
+      <!-- Header -->
+
+      <header id="header" class="dark"><!-- class .sticky-mobile makes header sticky on small devices -->
+        <div id="header-wrap">
+          <div class="container clearfix">
+            <div id="main-navbar-toggle"><i class="fa fa-bars"></i></div>
+
+
+
+            <!-- Branding -->
+
+            <div id="branding">
+              <a href="/" class="brand-normal"><img src="../assets/images/agency_logo/logo-dark.png" alt="toping"></a>
+              <a href="/" class="brand-retina"><img src="../assets/images/agency_logo/logo%402x-dark.png" alt="toping"></a>
+            </div><!-- #branding end -->
+
+
+
+            <!-- Main Navbar -->
+
+            <nav id="main-navbar">
+
+              <ul>
+                <li class="mega-menu-title"><a href="/ontoping/notice_prac">관리자 설정</a></li>
+              </ul>
+
+
+
+              <!-- Search Toggle -->
+
+              <!-- <div id="search-toggle"> <span class="divider">|</span> <a href="#"><i class="fa fa-search"></i></a> </div> -->
+            </nav><!-- #main-navbar end -->
+          </div>
+        </div>
+      </header><!-- #header end -->
+
+
+
+
+
+
+
+        <!-- InstanceBeginEditable name="contents" -->
+
+       <!-- ontent -->
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+
+
+                <!-- ============ heading section ============ -->
+                <div class="section m-0 pt-0">
+                    <div class="container clearfix" style="margin-bottom: 60px";>
+                        <div class="heading-block center">
+                            <h1 class="text-uppercase">관리자 설정</h1>
+                            <p class="lead">관리자용 페이지</p>
+                        </div>
+                    </div>
+                </div><!-- /heading section -->
+
+
+
+                <!-- ============ faq ============ -->
+                <div class="container clearfix">
+
+
+                    <div class="row">
+
+
+                        <div class="col-md-3 col-sm-3">
+                            <ul class="tabs-menu">
+                                <li class="active"><a href="#tab_1" data-toggle="tab">공지사항</a></li>
+                                <li class=""><a href="#tab_2" data-toggle="tab">1:1 문의</a></li>
+                                <li class=""><a href="#tab_3" data-toggle="tab">FAQ</a></li>
+                                <li class=""><a href="#tab_4" data-toggle="tab">템플릿디자인</a></li>
+                                <li class=""><a href="#tab_5" data-toggle="tab">사용메뉴얼</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-9 col-sm-9">
+                            <div class="tab-content">
+
+                                <!-- 공지사항 탭 시작 -->
+                                <div class="tab-pane active" id="tab_1" style="padding: 0 4em;">
+
+                                    <form class="form-group" id="form1" method="POST">
+                                        <div class="row">
+                                            <div>
+                                                <label for="notice_title">제목</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="" name="notice_title" class="form-control input-sm w-sm mb-10 inline-block" style="width: 80%;">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding:2rem 0;">
+                                            <label for="notice_content">내용</label>
+                                            <!-- 글쓰기 폼 -->
+
+                                        </div>
+                                        <button type="summit" class="myBtn">저장하기</button>
+                                    </form>
+
+                                </div>
+                                <!-- 공지사항 탭 끝 -->
+
+                                <!-- 1:1 문의 탭 시작 -->
+
+                                <div class="tab-pane active" id="tab_2" style="padding: 0 4em;">
+
+                                    <form class="wrap" id="form2" method="POST">
+                                        <div class="row">
+                                            <div>
+                                                <label for="contact_title">제목</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="" name="contact_title" class="form-control input-sm w-sm mb-10 inline-block" style="width: 80%;">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding:2rem 0;">
+                                            <label for="notice_content">내용</label>
+                                            <!-- 글쓰기 폼 -->
+
+                                        </div>
+                                        <button type="summit" class="myBtn">저장하기</button>
+                                    </form>
+
+                                </div>
+
+                                <!-- 1:1 문의 탭 끝 -->
+
+                                <!-- FAQ 탭 시작 -->
+                                <div class="tab-pane active" id="tab_3" style="padding: 0 4em;">
+
+                                    <form class="wrap" id="form3" method="POST">
+                                        <div class="row" style="padding: 2rem 0;">
+
+                                            <input type="radio" name="faq_category">저작권 관련
+                                            &nbsp;&nbsp;
+                                            <input type="radio" name="faq_category">결제/세금계산서
+                                            &nbsp;&nbsp;
+                                            <input type="radio" name="faq_category">메일, SNS 전송
+                                            <br>
+                                            <input type="radio" name="faq_category">비영리단체적용
+                                            &nbsp;&nbsp;
+                                            <input type="radio" name="faq_category">시스템사용오류
+                                            &nbsp;&nbsp;
+                                            <input type="radio" name="faq_category">사업제휴
+
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <label for="faq_title">제목</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="" name="faq_title" class="form-control input-sm w-sm mb-10 inline-block" style="width: 80%;">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding:2rem 0;">
+                                            <label for="notice_content">내용</label>
+                                            <!-- 글쓰기 폼 -->
+
+                                        </div>
+                                        <button type="summit" class="myBtn">저장하기</button>
+                                    </form>
+
+                                </div>
+
+                                <!-- FAQ 탭 끝 -->
+
+                                <!-- 템플릿디자인 탭 시작 -->
+                                <div class="tab-pane active" id="tab_4" style="padding: 0 4em;">
+
+                                    <form class="wrap" id="form4" method="POST">
+                                        <div class="row" style="border-bottom: 1px gray solid;">
+                                            <div>
+                                                <label for="templatedesign_title">템플릿 명</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="" name="templatedesign_title" class="form-control input-sm w-sm mb-10 inline-block" style="width: 80%;">
+                                            </div>
+                                        </div>
+                                        <!-- 사용범위 라디오 -->
+                                        <div class="row" style="padding: 2rem 0; border-bottom: 1px gray solid;">
+                                            <label for="range">사용범위</label>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="range" value="free_tier" required>무료회원
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="range" value="tier">유료회원
+                                        </div>
+
+                                        <!-- 카테고리 라디오 -->
+                                        <div class="row" style="padding: 2rem 0; border-bottom: 1px gray solid;">
+                                            <label for="category">카테고리</label>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="category" value="newsletter" required>뉴스레터
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="category" value="exhibition">전시공연
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="category" value="report">의정보고서
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="category" value="promotion">프로모션
+
+                                        </div>
+
+                                        <div class="row" style="padding:2rem 0;">
+                                            <label for="notice_content">템플릿 설명</label>
+                                            <!-- 글쓰기 폼 -->
+
+                                        </div>
+
+                                        <!-- 파일첨부  -->
+                                        <div class="row" style="padding: 2rem 0;">
+                                            <span class="myBtn inline-block">메인 이미지</span>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input class="inline-block" type="file" name="main_image">
+
+                                            <br><br>
+
+                                            <span class="myBtn inline-block" style="padding: 0 8px;">오버레이 이미지</span>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input class="inline-block" type="file" name="overlay_image">
+
+                                            <br><br>
+
+                                            <span class="myBtn inline-block">서브 이미지</span>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input class="inline-block" type="file" name="sub_image1">
+                                            <br>
+                                            <input type="file" name="sub_image2" style="padding-left: 140px;">
+                                            <br>
+                                            <input type="file" name="sub_image3" style="padding-left: 140px;">
+                                            <br>
+                                            <input type="file" name="sub_image4" style="padding-left: 140px;">
+
+
+                                        </div>
+
+                                        <br><br>
+                                        <button type="summit" class="myBtn">저장하기</button>
+                                    </form>
+
+                                </div>
+
+                                <!-- 템플릿디자인 탭 끝 -->
+
+
+                                <!-- 사용메뉴얼 탭 시작 -->
+
+                                <div class="tab-pane active" id="tab_5" style="padding: 0 4em;">
+
+                                    <form class="wrap" id="form5" method="POST">
+                                        <div class="row" style="border-bottom: 1px gray solid;">
+                                            <div>
+                                                <label for="manual_title">상품명</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="" name="manual_title" class="form-control input-sm w-sm mb-10 inline-block" style="width: 80%;">
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="border-bottom: 1px gray solid; padding: 2rem 0;">
+                                            <label for="category2">카테고리</label>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="category2" value="editor_manual" required>에디터메뉴얼
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="category2" value="editor_manual">동영상메뉴얼
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="category2" value="editor_manual">이미지에디터
+                                        </div>
+
+                                        <div class="row" style="padding:2rem 0;">
+                                            <label for="notice_content">메뉴얼내용</label>
+                                            <!-- 글쓰기 폼 -->
+
+                                        </div>
+
+                                        <div class="row" style="padding: 2rem 0;">
+                                            <span class="myBtn inline-block">섬네일 이미지</span>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input class="inline-block" type="file" name="thumbnail_image">
+
+                                            <br><br>
+
+                                            <span class="myBtn inline-block" style="padding: 0 13px;">오버레이 이미지</span>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input class="inline-block" type="file" name="overlay_image2">
+
+
+                                        </div>
+
+                                        <button type="summit" class="myBtn">저장하기</button>
+                                    </form>
+
+                                </div>
+
+                                <!-- 사용메뉴얼 탭 끝 -->
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+                </div><!-- /faq -->
+
+
+
+          </div>
+        </section><!-- #content end -->
+
+        <!-- InstanceEndEditable -->
+
+
+
+
+
+            <div class="row">
+                    <script type="text/javascript">
+                            $(document).ready(function() {
+                                $('#new-arrivals').owlCarousel({
+                                    loop: true,
+                                    nav: true,
+                                    autoplay:true,
+                                    autoplayTimeout:8000,
+                                    autoplayHoverPause:true,
+                                    pagination: false,
+                                    navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                                    items : 4,
+                                    margin: 30,
+                                    responsive:{
+                                        0:{ items:1 },
+                                        600:{ items:2 },
+                                        1000:{ items:3 },
+                                        1200:{ items:4 }
+                                    }
+                                });
+                            }); //ready
+                    </script>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+            var cCarousel = $("#clients-carousel");
+            cCarousel.owlCarousel({
+                loop: true,
+                nav: false,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                pagination: false,
+                margin: 30,
+                responsive:{
+                    0:{ items:1 },
+                    600:{ items:2 },
+                    1000:{ items:4 },
+                    1200:{ items:5 },
+                    1400:{ items:6 }
+                            }
+                            });
+
+                    }); //ready
+                </script>
+
+    <% include ../footer %>
+
+    <% include ../footer_script %>
+
+</body>
+</html>

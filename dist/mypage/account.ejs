@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/toping.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+<% include ../head %>
+<% include ../mosaico_script %>
+<script type="text/javascript">
+	function changePassword() {
+		var currentPW = document.forms["change-password-form"]["currnet_password"].value;
+		var newPW = document.forms["change-password-form"]["new_password"].value;
+		var newPWC = document.forms["change-password-form"]["new_password_check"].value;
+		if (currentPW == "" || newPW == "" || newPWC == "") {
+			alert("빈 칸을 채워주세요.");
+		} else if (newPW != newPWC) {
+			alert("비밀번호가 일치하지 않습니다.");
+		} else {
+			document.getElementById('change-password-form').submit();
+		}
+	}
+</script>
+
+</head>
+
+<body>
+
+	<% include ../header %>
+
+
+
+
+        <!-- InstanceBeginEditable name="contents" -->
+
+
+
+        <!-- content -->
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                        <!-- ============ heading section ============ -->
+												<div class="section m-0 pt-0">
+												    <div class="container clearfix">
+												        <div class="heading-block center">
+												          <h1 class="text-uppercase">내 계정 정보</h1>
+												          <p class="lead">회원님의 개인정보와 비밀번호 등을 수정할 수 있습니다</p>
+												     </div>
+												    </div>
+												 </div>
+												</div><!-- /heading section -->
+
+
+												<div class="container clearfix">
+
+												<div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="well bg-white b-0">
+															<div class="row">
+																<div class="col-sm-1"></div>
+																<h3 class="text-bold text-uppercase">회원 정보</h6>
+															</div>
+															<div class="row">
+																<div class="col-sm-1"></div>
+																<div class="col-sm-5"><h6 class="text-bold text-uppercase">이메일</h6></div>
+																<div class="col-sm-5"><%= session.email %></div>
+															</div>
+															<div class="row">
+																<div class="col-sm-1"></div>
+																<div class="col-sm-5"><h6 class="text-bold text-uppercase">회원명</h6></div>
+																<div class="col-sm-5"><%= session.name %></div>
+															</div>
+																<div class="row">
+																	<div class="col-sm-1"></div>
+                                	<h3 class="text-bold text-uppercase">비밀번호 변경</h6>
+																</div>
+																<form id="change-password-form" action="/users/changepassword" method="post">
+																	<div class="row">
+																		<div class="col-sm-1"></div>
+																		<div class="col-sm-5">
+																			<h6 class="text-bold text-uppercase" style="margin-bottom: 5px;">현재 비밀번호</h6>
+																			<input class="form-control myInput" type="password" name="currnet_password" required/>
+																		</div>
+																		<div class="col-sm-6"></div>
+																	</div>
+																	<div class="row">
+																		<div class="col-sm-1"></div>
+																		<div class="col-sm-5">
+																			<h6 class="text-bold text-uppercase" style="margin-bottom: 5px;">비밀번호</h6>
+																			<input class="form-control myInput" type="password" name="new_password" required/>
+																		</div>
+
+																		<div class="col-sm-5">
+																			<h6 class="text-bold text-uppercase" style="margin-bottom: 5px;">비밀번호 확인</h6>
+																			<input class="form-control myInput" type="password" name="new_password_check" required/>
+																		</div>
+																		<div class="col-sm-1"></div>
+																	</div>
+																	<div class="row">
+																		<div class="col-sm-1"></div>
+																		<div class="col-sm-4">
+				                                <button onclick="changePassword()" type="button" class="myBtn myBtn-rounded myBtn-dark m-0 mt-10">비밀번호 변경</button>
+				                            </div>
+																	</div>
+																</form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /row -->
+
+
+                </div>
+                <!-- /container -->
+
+
+
+                <script type="text/javascript">
+
+                    $(document).ready(function() {
+
+                        var cCarousel = $("#clients-carousel");
+
+                        cCarousel.owlCarousel({
+                            loop: true,
+                            nav: false,
+                            autoplay:true,
+                            autoplayTimeout:3000,
+                            autoplayHoverPause:true,
+                            pagination: false,
+                            margin: 30,
+                            responsive:{
+                                0:{ items:1 },
+                                600:{ items:2 },
+                                1000:{ items:4 },
+                                1200:{ items:5 },
+                                1400:{ items:6 }
+                            }
+                        });
+
+
+                    }); //ready
+
+                </script>
+            </div>
+        </section><!-- #content end -->
+
+        <!-- InstanceEndEditable -->
+
+
+
+
+
+            <div class="row">
+                    <script type="text/javascript">
+                            $(document).ready(function() {
+                                $('#new-arrivals').owlCarousel({
+                                    loop: true,
+                                    nav: true,
+                                    autoplay:true,
+                                    autoplayTimeout:8000,
+                                    autoplayHoverPause:true,
+                                    pagination: false,
+                                    navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                                    items : 4,
+                                    margin: 30,
+                                    responsive:{
+                                        0:{ items:1 },
+                                        600:{ items:2 },
+                                        1000:{ items:3 },
+                                        1200:{ items:4 }
+                                    }
+                                });
+                            }); //ready
+                    </script>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+            var cCarousel = $("#clients-carousel");
+            cCarousel.owlCarousel({
+                loop: true,
+                nav: false,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                pagination: false,
+                margin: 30,
+                responsive:{
+                    0:{ items:1 },
+                    600:{ items:2 },
+                    1000:{ items:4 },
+                    1200:{ items:5 },
+                    1400:{ items:6 }
+                            }
+                            });
+
+                    }); //ready
+                </script>
+
+    <% include ../footer %>
+
+    <% include ../footer_script %>
+
+</body>
+</html>

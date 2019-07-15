@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <% include ../head %>
+    <% include ../mosaico_script %>
+    <script>
+    function contactPost() {
+      document.getElementById('contact-form').submit();
+    }
+    </script>
+</head>
+
+<body class="box-layout">
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+    <div id="wrapper" class="wrapper">
+        <!-- Header Area Start Here -->
+        <% include header_admin %>
+        <!-- Header Area End Here -->
+         <!-- Slider Area Start Here -->
+
+        <section class="contact-page-wrap">
+            <div class="top-margin"></div>
+            <div class="container">
+              <div class="contact-form-wrap">
+                <div class="section-heading text-center heading-dark heading-layout2">
+                    <div class="item-title1">회원관리</div>
+                    <div>
+                    <p></p>
+                    </div>
+                </div>
+
+                <table class="table" style="width: 960px; margin-left: auto; margin-right: auto;">
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">No.</th>
+                            <th style="width: 20%;">성명(단체)</th>
+                            <th style="width: 15%">연락처</th>
+                            <th style="width: 15%">이메일</th>
+                            <th style="width: 10%">등급</th>
+                            <th style="width: 10%">가입일</th>
+                            <th style="width: 10%">회원삭제</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <% for(let user of users) { %>
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><%= user.name %></td>
+                            <td><%= user.phone %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.tier %></td>
+                            <td><%= user.date %></td>
+                            <td>
+                            <form action="/ontoping/membermanage/delete/<%=user.id%>" method="POST" id="contact-form">
+                              <button type="submit" onclick="contactPost()">회원 탈퇴</button>
+                            </form>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+
+
+                </div>
+            </div>
+        </section>
+        <!-- Brand Area End Here -->
+        <!-- Footer Area End Here -->
+        <% include ../footer %>
+        <!-- Footer Area End Here -->
+        <!-- Search Box Start Here -->
+
+        <!-- Search Box End Here -->
+
+    </div>
+    <% include ../footer_script %>
+
+
+</body>
+
+</html>

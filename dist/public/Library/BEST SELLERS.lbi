@@ -1,0 +1,55 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<div class="sidebar-widget" style="margin-top: 55px;">
+							   
+                                <h6 class="text-bold text-uppercase">Best Sellers</h6>
+                                <ul class="media-list product-list">
+
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="../product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="../assets/images/items/woman/1_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="../product-detail.html">White T-Shirt</a></p>
+                                            <p class="price">$14.99</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="../product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="../assets/images/items/woman/2_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="../product-detail.html">Red T-Shirt</a></p>
+                                            <p class="price">$12.99</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="../product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="../assets/images/items/woman/3_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="../product-detail.html">Red T-Shirt</a></p>
+                                            <p class="price">$12.99</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="../product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="../assets/images/items/woman/4_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="../product-detail.html">Red T-Shirt</a></p>
+                                            <p class="price">$12.99</p>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>

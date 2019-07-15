@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/toping.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+<% include head %>
+<% include mosaico_script %>
+<script>
+	function loginPost() {
+		$.ajax({
+			type: "POST",
+			url: "/users/login",
+			data: {
+				"userEmail": document.getElementById("userEmail").value,
+				"password": document.getElementById("password").value
+			},
+			success: function(result) {
+				if (result) {
+					viewModel.newEdit('tutorial', result['uid']);
+					// viewModel.newEdit.bind(undefined, 'tutorial', result['uid']);
+					// window.location.href="../editor.html?0.17.4#templates/tutorial/template-tutorial.html";
+				} else {
+					alert("없는 아이디거나, 비밀번호를 잘못 입력하셨습니다.");
+				}
+			},
+			error: function() {
+				alert("없는 아이디거나, 비밀번호를 잘못 입력하셨습니다.");
+			}
+		})
+	}
+</script>
+</head>
+
+<body>
+
+	<% include header %>
+
+
+
+
+
+        <!-- InstanceBeginEditable name="contents" -->
+
+       <!-- Content -->
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <!-- ============ heading section ============ -->
+                <div class="section m-0 pt-0">
+                    <div class="wrap">
+                        <div class="heading-block center">
+                            <h1 class="text-uppercase">토핑 로그인</h1>
+                            <p class="lead">토핑 회원으로 로그인 하신 후 서비스를 이용하실 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div><!-- /heading section -->
+
+
+
+                <!-- ============ login ============ -->
+
+                <div class="container">
+
+                <div class="row clearfix col-md-8 col-md-offset-2" style="margin-top: 80px;">
+                    <div  class="col-md-6 col-lg-4" style="text-align:center; padding-bottom: 30px;">
+                        <img src="../assets/images/agency_logo/login_logo.png" width="198" height="135" alt="" />
+                    </div>
+                    <div  class="col-md-6 col-lg-8">
+                  <h4><em class="fa fa-lock"></em>&emsp;서비스 이용을 위해 로그인 해주세요</h4>
+                  <form>
+                        <div class="row">
+
+                            <div class="form-group col-md-12">
+                                <label for="userEmail">사용자 ID</label>
+                                <input name="userEmail" type="text" class="form-control myInput" id="userEmail" required>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="password">비밀번호</label>
+                                <input name="password" type="password" class="form-control myInput" id="password" required>
+                            </div>
+
+                            <div class="col-md-12">
+                                <button onclick="loginPost()" type="button" class="myBtn myBtn-rounded myBtn-dark m-0 mt-10">Login</button>
+                                <a href="#" class="pull-right">비밀번호를 분실하셨나요?</a>
+                            </div>
+							<div class="col-sm-12">
+          						<div class="checkbox">
+           						<label>
+              						<input type="checkbox">로그인 정보 기억하기
+            					</label>
+         						 </div>
+        					</div>
+
+                        </div>
+                    </form>
+
+                    <div class="header-line mt-40" style="margin-bottom: 10px";>
+                        <h4>SNS ID 로그인</h4>
+                    </div>
+
+                    <div class="social">
+
+
+                        <a class="social-icon social-facebook" href="#">
+                            <div class="front">
+                                <i class="fa fa-facebook"></i>
+                            </div>
+                            <div class="back">
+                                <i class="fa fa-facebook"></i>
+                            </div>
+                        </a>
+
+                        <a class="social-icon social-twitter" href="#">
+                            <div class="front">
+                                <i class="fa fa-twitter"></i>
+                            </div>
+                            <div class="back">
+                                <i class="fa fa-twitter"></i>
+                            </div>
+                        </a>
+
+                        <a class="social-icon social-googleplus" href="#">
+                            <div class="front">
+                                <i class="fa fa-google-plus"></i>
+                            </div>
+                            <div class="back">
+                                <i class="fa fa-google-plus"></i>
+                            </div>
+                        </a>
+
+
+                    </div>
+                        <div>
+                            <p class="login_page" style="padding-top: 30px";>
+                                아직 토핑 회원이 아니세요?<br><a href="/users/sign-up"><strong>회원가입</strong></a>을 하시면 다양한 혜택이 기다립니다.
+                            </p>
+                        </div>
+
+                 </div><!-- /login -->
+                </div>
+            </div>
+
+        </section>
+
+                <!-- InstanceEndEditable -->
+
+
+
+
+
+            <div class="row">
+                    <script type="text/javascript">
+                            $(document).ready(function() {
+                                $('#new-arrivals').owlCarousel({
+                                    loop: true,
+                                    nav: true,
+                                    autoplay:true,
+                                    autoplayTimeout:8000,
+                                    autoplayHoverPause:true,
+                                    pagination: false,
+                                    navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                                    items : 4,
+                                    margin: 30,
+                                    responsive:{
+                                        0:{ items:1 },
+                                        600:{ items:2 },
+                                        1000:{ items:3 },
+                                        1200:{ items:4 }
+                                    }
+                                });
+                            }); //ready
+                    </script>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+            var cCarousel = $("#clients-carousel");
+            cCarousel.owlCarousel({
+                loop: true,
+                nav: false,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                pagination: false,
+                margin: 30,
+                responsive:{
+                    0:{ items:1 },
+                    600:{ items:2 },
+                    1000:{ items:4 },
+                    1200:{ items:5 },
+                    1400:{ items:6 }
+                            }
+                            });
+
+                    }); //ready
+                </script>
+
+    <% include footer %>
+
+    <% include footer_script %>
+
+</body>
+</html>

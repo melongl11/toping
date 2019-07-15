@@ -1,0 +1,86 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <% include ../head %>
+  <% include ../mosaico_script %>
+  <script>
+  function contactPost() {
+    document.getElementById('contact-form').submit();
+  }
+  </script>
+</head>
+
+<body class="box-layout">
+  <!-- Preloader Start Here -->
+  <div id="preloader"></div>
+  <% include header_admin %>
+  <!-- Preloader End Here -->
+  <div id="wrapper" class="wrapper">
+
+
+    <section class="page-core">
+      <div class="container">
+        <div class="contact-form-wrap">
+
+		<div class="section-heading text-center heading-dark heading-layout2" style=" text-align: left;">
+            <div class="section m-0 pt-0">
+                    <div class="container clearfix">
+                        <div class="heading-block center" style="padding-bottom: 50px;">
+                        <h1 class="text-uppercase" style="color: #ffffff;">FAQ 추가</h1> </div>
+                    </div>
+             </div>
+
+
+		<div class="table" style="margin-left: auto; margin-right: auto; background-color: #f8f8f8; padding: 40px;">
+          <form action="/ontoping/faq/edit" method="POST" class="contact-form-box" id="contact-form">
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <input type="text" placeholder="제목 *" class="form-control" name="title">
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="number" placeholder="카테고리 *" class="form-control" name="category">
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-6 form-group">
+                <input type="number" placeholder="하위 번호 *" class="form-control" name="lowerCategory">
+                <div class="help-block with-errors"></div>
+              </div>
+              <div class="col-md-12 form-group">
+                <textarea placeholder="FAQ 내용 *" class="textarea form-control" name="description" id="form-message"
+                required style="height: 150px;"></textarea>
+                <div class="help-block with-errors"></div>
+                <br>
+              </div>
+
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-8 text-center">
+            </div>
+            <div class="col-md-2"></div>
+            <div class="form-response"></div>
+          </form>
+		 </div>
+        </div>
+			<button type="submit" class="myBtn" onclick="contactPost()">글작성하기</button>
+		</div>
+      </div>
+    </section>
+
+    <div id="header-search" class="header-search">
+      <button type="button" class="close">×</button>
+      <form class="header-search-form">
+        <input type="search" value="" placeholder="Type here........" />
+        <button type="submit" class="search-btn">
+          <i class="flaticon-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+  <% include ../footer_script %>
+
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="/css/fontawesome-all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="/css/font/flaticon.css">
+    <!-- Meanmenu CSS -->
+    <link rel="stylesheet" href="/css/meanmenu.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="/vendor/OwlCarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/vendor/OwlCarousel/owl.theme.default.min.css">
+    <!-- Nivo slider CSS -->
+    <link rel="stylesheet" href="/vendor/slider/css/nivo-slider.css">
+    <!-- offcanvas CSS -->
+    <link rel="stylesheet" href="/css/rt-canvas-menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=1024, initial-scale=1">
+    <style media="screen">
+      p {
+        all:unset
+      }
+      h1 {
+        line-height: 38px;
+      }
+      h2 {
+        line-height: 30px;
+      }
+      h3 {
+        line-height: 25px;
+      }
+      h4 {
+        line-height: 23px;
+      }
+      h5 {
+        line-height: 20px;
+      }
+      h6 {
+        line-height: 17px;
+      }
+    </style>
+    <link rel="canonical" href="http://mosaico.io" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script src="rs/mosaico-libs-and-tinymce.min.js?v=0.17.4"></script>
+    <script src="rs/mosaico.min.js?v=0.17.4"></script>
+    <script src="js/cropper/cropper.js"></script>
+    <link href="js/cropper/croppes.css"></script>
+    <script>
+      $(function() {
+        var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+        for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+          if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+        }
+      };
+
+  var hash = getUrlParameter('id');
+
+  if (hash) {
+    $.ajax({
+      url: '/load',
+      type: 'post',
+      dataType: 'JSON',
+      data: {'hash': hash},
+      success: function(data) {
+        var metadata = JSON.parse(data['metadata']);
+        var content = JSON.parse(data['json']);
+        var mdkey = data['mdkey'];
+        console.log(metadata);
+        var basePath = window.location.href.substr(0, window.location.href.lastIndexOf('/'));
+        var uid = basePath[basePath.length - 1];
+        var plugins = [];
+        if (window.location.href.lastIndexOf('#') === -1)
+          document.location += "#"+mdkey;
+        var ok = Mosaico.init({
+          load: true,
+          metadata: metadata,
+          content: content,
+          imgProcessorBackend: basePath+'/img/',
+          emailProcessorBackend: basePath+'/dl/',
+          titleToken: "MOSAICO Responsive Email Designer",
+          strings: 'mosaico-fr.json',
+          fileuploadConfig: {
+            url: basePath+'/upload/' + uid,
+            // messages??
+          }
+        }, undefined, metadata, content, plugins);
+      },
+      error: function(err) {
+
+      }
+    });
+  }
+  else {
+    var basePath = window.location.href;
+    if (!Mosaico.isCompatible()) {
+      alert('Update your browser!');
+      return;
+    }
+
+    // var basePath = window.location.href.substr(0, window.location.href.lastIndexOf('/')).substr(window.location.href.indexOf('/','https://'.length));
+    var uid = basePath[basePath.length - 1];
+    if (basePath.lastIndexOf('#') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('#'));
+    if (basePath.lastIndexOf('?') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('?'));
+    if (basePath.lastIndexOf('/') > 0) basePath = basePath.substr(0, basePath.lastIndexOf('/'));
+    var plugins = [];
+    // A basic plugin that expose the "viewModel" object as a global variable.
+    // plugins = [function(vm) {window.viewModel = vm;}];
+
+    var ok = Mosaico.init({
+      load: false,
+      imgProcessorBackend: basePath+'/img/',
+      emailProcessorBackend: basePath+'/dl/',
+      titleToken: "MOSAICO Responsive Email Designer",
+      strings: 'mosaico-fr.json',
+      fileuploadConfig: {
+        url: basePath+'/upload/' + uid,
+        // messages??
+      }
+    }, plugins);
+    if (!ok) {
+      console.log("Missing initialization hash, redirecting to main entrypoint");
+      document.location = ".";
+    }
+  }
+
+});
+    </script>
+
+    <link rel="stylesheet" href="rs/mosaico-libs.min.css?v=0.17.4" />
+    <link rel="stylesheet" href="rs/mosaico-material.min.css?v=0.17.4" />
+  </head>
+  <body class="mo-standalone">
+    
+  </body>
+</html>

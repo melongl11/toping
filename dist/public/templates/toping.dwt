@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+ 
+
+    <!-- Stylesheets --> 
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic|Raleway:300,400,500,600,700|Open+Sans+Condensed:700" rel="stylesheet" type="text/css" /> 
+    <link rel="stylesheet" href="../assets/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/js/vendor/flexslider/flexslider.css" type="text/css" /> 
+    <link rel="stylesheet" href="../assets/js/vendor/magnific/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/js/vendor/owl/assets/owl.carousel.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/js/vendor/bootstrap-select/css/bootstrap-select.min.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/js/vendor/range-slider/css/styles.css" type="text/css" />
+
+	
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="../assets/js/vendor/rs-plugin/css/settings.css" media="screen" />
+
+	
+    <!-- animsition CSS -->
+    <link rel="stylesheet" href="../assets/js/vendor/animsition/css/animsition.min.css">
+
+	
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+
+
+	
+    <!-- Main App Stylesheet -->
+
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    	<!--[if lt IE 9]>
+    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    	<![endif]-->
+
+
+
+    	<!-- Page Title -->
+	
+		<!-- TemplateBeginEditable name="doctitle" -->
+   	 	<title>Toping</title>
+   	 	<!-- TemplateEndEditable -->
+   	 	<!-- TemplateBeginEditable name="head" -->
+   	 	<!-- TemplateEndEditable -->
+		</head>
+
+
+	
+	
+		<body>
+
+
+    	<!-- Page Wrapper -->
+
+   		 <div id="wrapper" class="clearfix animsition">
+		
+
+		<!-- Search Container -->
+
+        <div id="search-container" class="search-box-wrapper">
+            <div class="container">
+                <i class="fa fa-search"></i>
+                <div class="search-box">
+                    <form action="http://example.com/" class="search-form" role="search" >
+                        <input type="search" name="s" value="" title="Press Enter to submit your search" placeholder="Search…" class="search-field">
+                        <input type="submit" value="Search" class="search-submit">
+                    </form>
+                </div>
+            </div>
+        </div><!--/ #search-container -->
+
+
+
+    	<!-- Additional Navbar -->
+
+        <nav id="add-navbar">
+
+            <div class="container clearfix">
+
+                <ul class="pull-right">
+                    <li><a href="login.html">로그인</a></li>
+                    <li><a href="account.html">내정보</a></li>
+					<li><a href="sign-up.html">회원가입</a></li>
+					<li><a href="faq.html">저작권 FAQ</a></li>
+                    <li><a href="contact.html">고객센터</a></li>
+                </ul>
+
+                <ul class="divided">
+                    <li><i class="fa fa-phone mr-5"></i> <span>055 714 1091</span></li> 
+                </ul>
+
+            </div>
+
+        </nav><!-- #add-navbar end -->
+
+
+
+     	<!-- Header -->
+
+        <header id="header" class="dark"><!-- class .sticky-mobile makes header sticky on small devices -->
+            <div id="header-wrap">
+                <div class="container clearfix">
+                    <div id="main-navbar-toggle"><i class="fa fa-bars"></i></div>
+
+
+					
+		<!-- Branding -->
+
+        <div id="branding">
+            <a href="../index.html" class="brand-normal"><img src="../assets/images/agency_logo/logo-dark.png" alt="toping"></a>
+            <a href="../index.html" class="brand-retina"><img src="../assets/images/agency_logo/logo@2x-dark.png" alt="toping"></a>
+        </div><!-- #branding end -->
+
+
+
+         <!-- Main Navbar -->
+
+			<nav id="main-navbar">
+ 
+ 			<ul>
+             	<li class="active"><a href="index.html">Home</a></li>
+                <li><a href="#">토핑올리기</a></li> 
+                <li class="mega-menu-title"><a href="product.html">템플릿디자인</a></li>
+				<li class="mega-menu-title"><a href="topingsolution.html">토핑솔루션은? </a></li>
+                <li class="mega-menu-title"><a href="menual.html">사용메뉴얼</a></li>
+				<li class="mega-menu-title"><a href="prices.html">요금제</a></li>
+                <li class="mega-menu-title"><a href="notice.html">공지사항</a></li>
+                <li class="mega-menu-title"><a href="csnotice.html">1:1 문의</a></li>
+            </ul>
+
+
+			
+          <!-- Search Toggle -->
+
+			<div id="search-toggle"> <span class="divider">|</span> <a href="#"><i class="fa fa-search"></i></a> </div>
+			</nav><!-- #main-navbar end -->
+		</div>
+	</div>
+</header><!-- #header end -->
+			 
+			 
+			 
+		
+
+    	<!-- TemplateBeginEditable name="contents" --> 
+		
+		본문시작페이지 
+		
+		<!-- TemplateEndEditable -->
+
+			
+		
+		
+
+			<div class="row">
+     				<script type="text/javascript">
+                            $(document).ready(function() {
+                                $('#new-arrivals').owlCarousel({
+                                    loop: true,
+                                    nav: true,
+                                    autoplay:true,
+                                    autoplayTimeout:8000,
+                                    autoplayHoverPause:true,
+                                    pagination: false,
+                                    navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                                    items : 4,
+                                    margin: 30,
+                                    responsive:{
+                                        0:{ items:1 },
+                                        600:{ items:2 },
+                                        1000:{ items:3 },
+                                        1200:{ items:4 }
+                                    }
+                                });
+                            }); //ready
+					</script>
+      		</div><!-- /row -->
+		</div> <!-- /container -->
+			
+			
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+            var cCarousel = $("#clients-carousel");
+            cCarousel.owlCarousel({
+ 				loop: true,
+				nav: false,
+				autoplay:true,
+				autoplayTimeout:3000,
+				autoplayHoverPause:true,
+				pagination: false,
+				margin: 30,
+				responsive:{
+					0:{ items:1 },
+					600:{ items:2 },
+					1000:{ items:4 },
+					1200:{ items:5 },
+					1400:{ items:6 }
+							}
+							});
+				
+                    }); //ready
+                </script>
+            </div>
+        </section><!-- #content end -->
+
+
+
+        <!-- Footer -->
+
+        <footer id="footer">
+			
+						                <!-- ============ features section ============ -->
+                <div class="section bg-lightred mb-0 section-slim" id="features" style="padding: 15px;">
+                    <div class="container clearfix">
+
+                        <!-- row -->
+                        <div class="row">
+
+                            <!-- col -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="product.html"><i class="fa fa-codepen icon-circle"></i></a>
+                                    </div>
+                                    <div class="media-body"  style="vertical-align: middle;">
+                                        <h4 class="condensed text-uppercase mb-0">템플릿 제작</h4>
+                                        <span class="text-uppercase">용도에 맞는 템플릿을 만나보세요.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /col -->
+
+                            <!-- col -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="topingsolution.html"><i class="fa fa-sliders icon-circle"></i></a>
+                                    </div>
+                                    <div class="media-body"  style="vertical-align: middle;">
+                                        <h4 class="condensed text-uppercase mb-0">토핑 주요기능</h4>
+                                        <span class="text-uppercase">모든 기기에서 완벽하게 작동합니다.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /col -->
+
+                            <!-- col -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="menual.html"><i class="fa fa-list-ul icon-circle"></i></a>
+                                    </div>
+                                    <div class="media-body"  style="vertical-align: middle;">
+                                        <h4 class="condensed text-uppercase mb-0">사용 메뉴얼</h4>
+                                        <span class="text-uppercase">동영상과 메뉴얼로 쉽게 배워보세요.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /col -->
+							
+							<!-- col -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="contact.html"> <i class="glyphicon glyphicon-headphones icon-circle"></i> </a>
+                                    </div>
+                                    <div class="media-body"  style="vertical-align: middle;">
+                                        <h4 class="condensed text-uppercase mb-0">고객상담센터</h4>
+                                        <span class="text-uppercase">토핑솔루션을 상담해드립니다.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /col -->
+
+                        </div>
+                        <!-- /row -->
+
+                    </div>
+                </div><!-- /features section -->
+
+            <div class="footer-main">
+                <div class="container">
+                  <div class="row">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="footer-logo">
+                            <a href="index.html"> 
+                                <img src="../assets/images/agency_logo/footer-logo.png" alt="logo" style="padding: 10px;">
+                            </a>
+          <hr style="border: solid 0.5px #5f5d5d;">
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="footer-box-layout1">
+						<div>
+						<p><strong>(주)오엔</strong>&emsp;<strong>O:N</strong> co.,ltd.</p>
+						</div>
+                        <div class="footer-contact-info" style="font-size: 12px;">
+                            <p> <strong><a href='agreement.html' class='footer--menu-title'>이용약관</a></strong>&emsp;|&emsp;<strong><a href='privacy.html' class="footer--menu-title">개인정보취급방침</a></strong>&emsp;|&emsp;<strong><a href='notice.html' class="footer--menu-title">공지사항</a></strong>&emsp;|&emsp;<strong><a href='contact.html' class="footer--menu-title">CONTACT US</a></strong></p>
+                                <p style="font-size: 12px;"> 통신판매업신고번호 : 2018-창원성산-0242&emsp;|&emsp;<a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=6088177068">사업자정보확인</a> <br>개인정보책임자 : 최덕규&emsp;|&emsp;고객센터 : 055-714-1091&emsp;|&emsp;FAX : 0505-320-2118<br>
+                                <img src="../assets/images/agency_logo/agency_logo_1.png">공인산업디자인전문회사&emsp;
+                                <img src="../assets/images/agency_logo/agency_logo_2.png">동남권 디자인전문회사&emsp;
+                            <img src="../assets/images/agency_logo/agency_logo_3.png">기술보증기금 벤처기업 </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="wrap">
+                        <h3 style="margin-bottom: 0px;">Newsletter</h3>
+						<p style="margin-bottom: 5px;">*토핑의 정기 업데이트 정보를 보내드립니다.</p>
+						 <div class="col-md-12" style="padding: 0px;">
+                            <div class="input-group">
+                               <input type="email" class="form-control no-border" placeholder="Enter your Email" required>
+                                  <span class="input-group-btn">
+                                       <button class="myBtn" type="submit">Subscribe</button>
+                                  </span>
+                             </div>
+                        </div> 
+                     			<form class="wrap">
+                            		<div class="form-response"></div>
+                     			</form>
+                    		</div>
+                		</div>
+            		</div>
+               </div>
+           </div>
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-12 copyright">
+                            <p class="mb-0" style="font-size: 13px;">&copy; Copyright 2019 by <a href="mailto:on@toping.io"><b>Toping</b></a>. All Rights Reserved.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+		</footer><!-- #footer end -->
+    </div><!-- #wrapper end -->
+
+
+
+    <!-- Go to Top -->
+
+    <div id="gotoTop" class="fa fa-angle-up hidden-md"></div>
+
+
+
+    <!-- Vendor JavaScripts -->
+
+    <script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/superfish/js/superfish.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/jRespond/jRespond.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/smoothscroll/SmoothScroll.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/appear/jquery.appear.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/stellar/jquery.stellar.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/flexslider/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/magnific/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/owl/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/jflickrfeed/jflickrfeed.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/tweet-js/jquery.tweet.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/countTo/jquery.countTo.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/range-slider/js/plugin.js"></script>
+
+
+    <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+    <script type="text/javascript" src="../assets/js/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+
+    <!-- animsition js -->
+    <script src="../assets/js/vendor/animsition/js/jquery.animsition.min.js"></script>
+
+
+    <!-- Custom JavaScripts -->
+
+    <script type="text/javascript" src="../assets/js/global.js"></script>
+
+</body>
+</html>

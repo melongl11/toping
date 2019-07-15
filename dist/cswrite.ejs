@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/toping.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+
+<% include head %>
+<% include mosaico_script %>
+
+<script type="text/javascript">
+function sendQuestion() {
+	var title = document.getElementById("title").value;
+	var inqeuiry = document.getElementById("description").value;
+	$.ajax({
+		type: "POST",
+		url: "/service/question",
+		data: {
+			"title": title,
+			"inqeuiry": inqeuiry,
+		},
+		success: function(result) {
+			console.log(result);
+			if (result) {
+				window.location.href="../service/cs";
+
+			} else {
+				alert("제목과 내용을 채워주십시오.");
+			}
+		},
+		error: function() {
+			alert("제목과 내용을 채워주십시오.");
+		}
+	});
+
+}
+</script>
+
+</head>
+
+<body>
+
+	<% include header %>
+
+
+
+
+
+        <!-- InstanceBeginEditable name="contents" -->
+
+
+	        <section id="content">
+			<div class="content-wrap">
+                <!-- ============ heading section ============ -->
+                <div class="section m-0 pt-0">
+                    <div class="container clearfix">
+                        <div class="heading-block center"><!-- InstanceBeginEditable name="EditRegion3" -->
+                            <h1 class="text-uppercase">1:1 문의게시판</h1>
+                            <p class="lead">Toping 서비스에 대한 궁금하신 점을 빠르고 친절하게 답변해 드립니다.</p>
+                        <!-- InstanceEndEditable --></div>
+                    </div>
+                </div><!-- /heading section -->
+			</div>
+
+
+           <div class="content-wrap">
+
+
+                <!-- ============ Contact section ============ -->
+                <div class="container clearfix">
+
+                    <div class="row">
+
+                        <div class="col-md-9">
+
+                            <div class="well b-0">
+
+								<!-- InstanceBeginEditable name="EditRegion2" -->
+
+
+                            <section class="tile">
+
+
+
+                                 <!-- tile body -->
+                                <div class="tile-body">
+
+																	<form action="/service/question" method="POST" class="contact-form-box" id="contact-form">
+																		<div class="row">
+
+																			<div class="col-md-12 form-group">
+																				<input type="text" placeholder="제목 *" class="form-control" name="title">
+																				<div class="help-block with-errors"></div>
+																			</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-md-12 form-group">
+																				<textarea placeholder="공지사항내용 *" class="textarea form-control" name="description" id="form-message"
+																				required style="height: 150px;"></textarea>
+																				<div class="help-block with-errors"></div>
+																				<br>
+																			</div>
+
+																		</div>
+																		<div class="row">
+																		<div class="col-md-10"></div>
+																		<div class="col-md-2 text-center">
+																			<button type="submit" class="myBtn myBtn-dark" onclick="sendQuestion()">문의하기</button>
+																		</div>
+																	</div>
+																	</form>
+                                </div>
+
+                                <!-- /tile body -->
+
+
+
+                            </section>
+
+
+								<!-- InstanceEndEditable --></div>
+
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div>
+                           <div class="media">
+                                    <div class="media-left">
+                                        <i class="glyphicon glyphicon-headphones icon-circle"></i>
+                                    </div>
+                                    <div class="media-body" style="vertical-align: middle;">
+                                        <h3 class="text-uppercase" style="margin:0";>고객문의 센터</h3>
+                                    </div>
+                           </div>
+
+
+
+
+                                <address>
+                                    <strong class="block mt-20">문의전화:</strong>
+                                    대표: +82 55 714 1091<br>
+                                    팩스: +82 0505 320 2118
+
+                                    <strong class="block mt-20">E-mail [CS center] : <a href="mailto:on@toping.io"> on@toping.io</a><br></strong>
+
+                                    <div class="social mt-20 mb-30">
+                                        <a class="social-icon social-facebook" href="#">
+                                            <div class="front">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                            <div class="back">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                        </a>
+
+                                        <a class="social-icon social-twitter" href="#">
+                                            <div class="front">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                            <div class="back">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                        </a>
+
+                                        <a class="social-icon social-googleplus" href="#">
+                                            <div class="front">
+                                                <i class="fa fa-google-plus"></i>
+                                            </div>
+                                            <div class="back">
+                                                <i class="fa fa-google-plus"></i>
+                                            </div>
+                                        </a>
+
+                                        <a class="social-icon social-pinterest" href="#">
+                                            <div class="front">
+                                                <i class="fa fa-pinterest"></i>
+                                            </div>
+                                            <div class="back">
+                                                <i class="fa fa-pinterest"></i>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </address>
+
+								<hr>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<div class="sidebar-widget" style="margin-top: 30px;">
+
+                                <h3 class="text-bold text-uppercase">Best Sellers</h3>
+                                <ul class="media-list product-list">
+
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="assets/images/items/woman/1_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="product-detail.html">White T-Shirt</a></p>
+                                            <p class="price">$14.99</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="assets/images/items/woman/2_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="product-detail.html">Red T-Shirt</a></p>
+                                            <p class="price">$12.99</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="assets/images/items/woman/3_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="product-detail.html">Red T-Shirt</a></p>
+                                            <p class="price">$12.99</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="product-detail.html">
+                                                <img class="media-object thumb-w" alt="" src="assets/images/items/woman/4_thumb.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="media-heading"><a href="product-detail.html">Red T-Shirt</a></p>
+                                            <p class="price">$12.99</p>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- ============ /Contact section ============ -->
+
+
+
+
+
+
+
+			<div class="row">
+     				<script type="text/javascript">
+                            $(document).ready(function() {
+                                $('#new-arrivals').owlCarousel({
+                                    loop: true,
+                                    nav: true,
+                                    autoplay:true,
+                                    autoplayTimeout:8000,
+                                    autoplayHoverPause:true,
+                                    pagination: false,
+                                    navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+                                    items : 4,
+                                    margin: 30,
+                                    responsive:{
+                                        0:{ items:1 },
+                                        600:{ items:2 },
+                                        1000:{ items:3 },
+                                        1200:{ items:4 }
+                                    }
+                                });
+                            }); //ready
+					</script>
+      		</div><!-- /row -->
+		</div> <!-- /container -->
+
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+            var cCarousel = $("#clients-carousel");
+            cCarousel.owlCarousel({
+                loop: true,
+                nav: false,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                pagination: false,
+                margin: 30,
+                responsive:{
+                    0:{ items:1 },
+                    600:{ items:2 },
+                    1000:{ items:4 },
+                    1200:{ items:5 },
+                    1400:{ items:6 }
+                            }
+                            });
+
+                    }); //ready
+                </script>
+
+
+
+
+
+
+    <% include footer %>
+
+    <% include footer_script %>
+
+</body>
+</html>
