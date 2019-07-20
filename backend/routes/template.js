@@ -50,7 +50,7 @@ router.get('/', function(req, res, next) {
         templates.push(currentTemplate);
       });
       console.log(templates);
-      res.render('template',{
+      res.render('template/template',{
         title: "Toping 템플릿",
         session: session,
         templates: templates,
@@ -86,7 +86,7 @@ router.get('/:id', function(req, res, next) {
           // var uploadHost = 'https://' + req.get('host');
           var uploadHost = 'https://toping.io';
           filename.push([title, category, path.join('/template_design/thumbnail/', name), path.join('/template_design/', name.replace(extension, '') + '.html')]);
-          res.render('template_view',{
+          res.render('template/template_view',{
             title: "Toping 템플릿",
             session: session,
             templates: filename,

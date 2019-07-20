@@ -200,7 +200,7 @@ var start = function(options, templateFile, templateMetadata, jsorjson, customEx
       vm.t = function(key, objParam) {
         var res = translation_ko[key];
         if (typeof res == 'undefined') {
-          console.warn("Missing translation string for",key,": using default string");
+          // console.warn("Missing translation string for",key,": using default string");
           res = key;
         }
         return vm.tt(res, objParam);

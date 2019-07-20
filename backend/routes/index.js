@@ -209,6 +209,7 @@ console.log(files);
 });
 
 router.use('/upload/:id', function(req, res, next){
+    console.log(req);
     upload.fileHandler({
         tmpDir: '.tmp',
         uploadDir: function () {

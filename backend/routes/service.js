@@ -16,7 +16,7 @@ router.get('/cs', function(req, res, next) {
       } else {
         result.dataValues.createdAt = dateTrans(result.dataValues.createdAt);
       }
-      res.render('csnotice', {
+      res.render('service/csnotice', {
         title: 'Q&A',
         session: session,
         qnas: result,
@@ -41,7 +41,7 @@ router.get('/cs/:id', function(req, res, next) {
       result.dataValues.createdAt = dateTrans(result.dataValues.createdAt);
       result.dataValues.updatedAt = dateTrans(result.dataValues.updatedAt);
 
-      res.render('csview', {
+      res.render('service/csview', {
         title: 'Q&A',
         session: session,
         qna: result,
@@ -57,7 +57,7 @@ router.get('/cs/:id', function(req, res, next) {
 
 router.get('/question', function(req, res, next) {
   let session = req.session;
-  res.render('cswrite', {
+  res.render('service/cswrite', {
     title: "Q&A",
     session: session
   });
@@ -87,7 +87,7 @@ router.post('/question', function(req, res, next) {
 
 router.get('/qna', function(req, res, next) {
   let session = req.session;
-  res.render('cscenter', {
+  res.render('service/cscenter', {
     title: "고객 문의",
     session: session
   });
@@ -98,7 +98,7 @@ router.get('/faq', function(req, res, next) {
   models.Faq.findAll({
 
   }).then(result => {
-    res.render('faq', {
+    res.render('service/faq', {
       title: "FAQ",
       session: session,
       faqs: result
@@ -110,7 +110,7 @@ router.get('/faq', function(req, res, next) {
 
 router.get('/contact', function(req, res, next) {
   let session = req.session;
-  res.render('contact', {
+  res.render('service/contact', {
     title: "고객센터",
     session: session
   });
@@ -124,7 +124,7 @@ router.get('/notice/:id', function(req, res, next) {
     where: {id: paramID}
   }).then(result => {
     result.dataValues.createdAt = dateTrans(result.dataValues.createdAt);
-    res.render('notice_view', {
+    res.render('service/notice_view', {
       title: "공지사항",
       session: session,
       notice: result,
@@ -145,7 +145,7 @@ router.get('/notice', function(req, res, next) {
       item.dataValues.createdAt = dateTrans(item.dataValues.createdAt);
       console.log(item.dataValues.createdAt);
     });
-    res.render('notice', {
+    res.render('service/notice', {
       title: "공지사항",
       session: session,
       notices: result,
@@ -159,7 +159,7 @@ router.get('/notice', function(req, res, next) {
 
 router.get('/agreement', function(req, res, next) {
   let session = req.session;
-  res.render('agreement', {
+  res.render('service/agreement', {
     title: "이용약관",
     session: session
   });
@@ -168,7 +168,7 @@ router.get('/agreement', function(req, res, next) {
 
 router.get('/privacy', function(req, res, next) {
   let session = req.session;
-  res.render('privacy', {
+  res.render('service/privacy', {
     title: "개인정보취급방침",
     session: session
   });
