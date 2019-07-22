@@ -11,7 +11,7 @@ var conversion = require('phantom-html-to-pdf')();
 var nodemailer = require('nodemailer');
 var _ = require('lodash');
 var url = require('url');
-var base64Img = require('base64-img-promise')
+var base64Img = require('base64-img-promise');
 
 var multer = require('multer');
 const storage = multer.diskStorage({
@@ -57,40 +57,6 @@ router.post('/upload_editted/:id', function(req, res){
     console.log(err);
     res.status(500).send("error");
   })
-
-  
-  
-
-  
-  /*
-  new Promise(function (resolve, reject) {
-    uploadEditted(req, res, function(err){
-      if(err) reject();
-      else {
-        console.log(req)
-        resolve()
-      };
-    })
-  }).then(function(result) {
-    var source = path.join(__dirname, '/../../dist/public/uploadTemp/', req.file.originalname);
-    var destination = path.join(__dirname, '/../../dist/public/uploads/', req.params.id, req.file.originalname);
-    fs.copyFileSync(source, destination, (err) => {
-      if(err) throw err;
-      console.log('copied');
-    })
-  }).then(function(result) {
-    var source = path.join(__dirname, '/../../dist/public/uploadTemp/', req.file.originalname);
-    try {
-      fs.unlinkSync(source);
-    } catch(err) {
-      console.log(err);
-    }
-  }).then(function(result) {
-    res.send("done");
-  }).catch(function(reason) {
-    console.log(reason)
-  });
-  */
 });
 
 /* GET home page. */
