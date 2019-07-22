@@ -34,6 +34,8 @@
     "tinymce": "global:tinymce"
   },
   "dependencies": {
+    "base64-img": "^1.0.4",
+    "base64-img-promise": "^1.0.5",
     "blueimp-canvas-to-blob": "3.14.0",
     "blueimp-file-upload": "9.22.0",
     "blueimp-load-image": "2.19.0",

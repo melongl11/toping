@@ -109,7 +109,8 @@
         var imageEditor = new tui.ImageEditor("#tui-image-editor-container", {
           includeUI: {
             loadImage: {
-              path: "/img/sampleImage2.png",
+              path: imageUrl,
+              //path: 'img/sampleImage2.png',
               name: "SampleImage"
             },
             theme: blackTheme, // or whiteTheme
@@ -153,7 +154,7 @@
 
   var hash = getUrlParameter('id');
 
-  if (hash) {
+  if (hash) { 
     $.ajax({
       url: '/load',
       type: 'post',
@@ -176,21 +177,26 @@
             var tuiEditor = initImageEidtor(imageUrl);
             
             $('.tui-image-editor-Save-btn').off("click").on("click", function() {
-              var image = $('.upper-canvas')[0].toDataURL();
+              var extension = imageUrl.split('.').pop();
+              console.log(extension);
+              var image = $('.lower-canvas')[0].toDataURL('image/jpeg');
               $.ajax({
-                type: "POST",
-                url: basePath +'/upload/' + uid,
-                data: image,
-                dataType: "image",
-                contentType: false,
-                processData: false,
+                type: "post",
+                url: basePath +'/upload_editted/' + uid,
+                data: {
+                  "imgFile" : image,
+                  "imgUrl" : imageUrl
+                },
                 success: function(result) {
                   alert("저장 완료")
+                  viewModel.remoteUrlProcessor(imageUrl);
                 },
                 error: function(result) {
+                  console.log(result);
                   alert("서버에 문제가 발생하였습니다. 관리자에게 문의하세요.");
                 }
               });
+              
               console.log(image);
             })
           }
@@ -234,19 +240,26 @@
             var imageUrl = src();
             var tuiEditor = initImageEidtor(imageUrl);
             $('.tui-image-editor-Save-btn').off("click").on("click", function() {
-              var image = $('.upper-canvas')[0].toDataURL();
+              var extension = imageUrl.split('.').pop();
+              console.log(extension);
+              var image = $('.lower-canvas')[0].toDataURL('image/jpeg');
               $.ajax({
                 type: "POST",
-                url: basePath +'/upload/' + uid,
-                data: image,
-                dataType: "image",
+                url: basePath +'/upload_editted/' + uid,
+                data: {
+                  "imgFile" : image,
+                  "imgUrl" : imageUrl
+                },
                 success: function(result) {
                   alert("저장 완료")
+                  viewModel.remoteUrlProcessor(imageUrl);
                 },
                 error: function(result) {
+                  console.log(result);
                   alert("서버에 문제가 발생하였습니다. 관리자에게 문의하세요.");
                 }
               });
+              
               console.log(image);
             })
           }
