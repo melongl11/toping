@@ -28,35 +28,63 @@ var uploadEditted = multer({
 }).single("imgFile");
 
 router.post('/upload_editted/:id', function(req, res){
-  var source = path.join(__dirname, '/../../dist/public/uploadTemp/', '');
-  var imgName = path.basename(req.body.imgUrl);
-  var destination = path.join(__dirname, '/../../dist/public/uploads/', req.params.id, imgName);
-  var thumbnailDestinataion = path.join(__dirname, '/../../dist/public/uploads/', req.params.id, 'thumbnail', imgName);
-  imgName = path.parse(imgName).name;
-  var newUrl = ''
-
-  base64Img.img(req.body.imgFile, source, imgName).then(function(result) {
-    newUrl = result;
-    fs.copyFileSync(newUrl, destination);
-  }).then(function(result) {
-    try {
-      fs.unlinkSync(newUrl);
-    } catch(err) {
+  var source = path.join(__dirname, "/../.tmp/", ""); // path where the editted image will be temporarily saved
+  var imgName = path.join(path.parse(path.basename(url.parse(req.body.imgUrl).pathname)).name.replace('%20', '') + "_edit"); // the original name of image
+  var destination = path.join(__dirname, "/../uploads/", req.params.id); // path where the editted image will be finally saved
+  var thumbnailDestinataion = path.join(
+    __dirname,
+    "/../uploads/",
+    req.params.id,
+    "/thumbnail/"
+  ); // path where the thumbnail of editted image will be finally saved
+  var extension = "";
+  var newUrl = "";
+  var stat = 0;
+  // Since the tui image editor uses canvas, the data is transferred in base64 format.
+  base64Img
+    .img(req.body.imgFile, source, imgName)
+    .then(function(result) {
+      // convert base64 image to image file.
+      newUrl = result; // path where the editted image will be temporarily saved. it include the name of image
+      extension = path.parse(newUrl).ext;
+      destination = path.join(destination, imgName + extension)
+      fs.copyFileSync(newUrl, destination); // copy the image file from temporarily folder to upload folder
+    })
+    .then(function(result) {
+      try {
+        fs.unlinkSync(newUrl); // delete the temporarily image file
+      } catch (err) {
+        console.log(err);
+      }
+    })
+    .then(function(result) {
+      stat = fs.statSync(destination)
+    })
+    .then(function(result) {
+      gm(destination) // make thumbnail.
+        .resize(90, 90, "^")
+        .gravity("center")
+        .extent(90, 90)
+        .write(path.join(thumbnailDestinataion, imgName + extension), function(err) {
+          if (err) console.log(err);
+        });
+      var url = req.protocol + "://" + req.get("host") + "/uploads/" + req.params.id + "/" + imgName + extension;
+      var thumbnailUrl = req.protocol + "://" + req.get("host") + "/uploads/" + req.params.id + "/thumbnail/" + imgName + extension;
+      res.status(200).json({
+        "url": url,
+        "thumbnailUrl" : thumbnailUrl,
+        "name": imgName + extension,
+        "size" : stat.size,
+        "deleteType": "DELETE",
+        "deleteUrl": url,
+        "originalName" : imgName + extension,
+        "type" : "image/" + extension.replace('.', '')
+      });
+    })
+    .catch(function(err) {
       console.log(err);
-    }
-  }).then(function(result){
-    gm(destination)
-      .resize(90, 90, '^')
-      .gravity('center')
-      .extent(90, 90)
-      .write(thumbnailDestinataion, function(err) {
-        if(err) console.log(err);
-      })
-    res.status(200).send("done");
-  }).catch(function(err) {
-    console.log(err);
-    res.status(500).send("error");
-  })
+      res.status(500).send("error");
+    });
 });
 
 /* GET home page. */

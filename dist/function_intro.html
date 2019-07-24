@@ -1,0 +1,719 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>주요기능소개</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="css/font/flaticon.css">
+    <!-- Meanmenu CSS -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="vendor/OwlCarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/OwlCarousel/owl.theme.default.min.css">
+    <!-- Nivo slider CSS -->
+    <link rel="stylesheet" href="vendor/slider/css/nivo-slider.css" />
+    <!-- offcanvas CSS -->
+    <link rel="stylesheet" href="css/rt-canvas-menu.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Modernize js -->
+    <script src="js/modernizr-3.6.0.min.js"></script>
+
+    <script src="rs/mosaico-libs-and-tinymce.min.js?v=0.17.4"></script>
+    <script>
+      var initialEdits = [];
+      if (localStorage.getItem('edits')) {
+        var editKeys = JSON.parse(localStorage.getItem('edits'));
+        var md;
+        for (var i = 0; i < editKeys.length; i++) {
+          md = localStorage.getItem('metadata-'+editKeys[i]);
+          if (typeof md == 'string') {
+            initialEdits.push(JSON.parse(md));
+          } else {
+            console.log("Ignoring saved key", editKeys[i], "type", typeof md, md);
+          }
+        }
+
+        initialEdits.sort(function(a, b) {
+          var lastA = a.changed ? a.changed : a.created;
+          var lastB = b.changed ? b.changed : b.created;
+          if (lastA < lastB) return 1;
+          if (lastA > lastB) return -1;
+          return 0;
+        });
+      }
+
+      var viewModel = {
+        showSaved: ko.observable(false),
+        edits: ko.observableArray(initialEdits),
+        templates: [{
+          name: 'versafix-1', desc: 'The versatile template'
+        },{
+          name: 'tedc15', desc: 'The TEDC15 template'
+        },{
+          name: 'tutorial', desc: 'The Tutorial'
+        }]
+      };
+
+      viewModel.edits.subscribe(function(newEdits) {
+        var keys = [];
+        for (var i = 0; i < newEdits.length; i++) {
+          keys.push(newEdits[i].key);
+          localStorage.setItem('metadata-'+newEdits[i].key, ko.toJSON(newEdits[i]));
+        }
+        localStorage.setItem('edits', ko.toJSON(keys));
+      });
+
+      viewModel.dateFormat = function(unixdate) {
+        if (typeof unixdate == 'undefined') return 'DD-MM-YYYY';
+        var d = new Date();
+        d.setTime(ko.utils.unwrapObservable(unixdate));
+        var m = ""+(d.getMonth()+1);
+        var h = ""+(d.getHours());
+        var i = ""+(d.getMinutes());
+        return d.getDate()+"/"+(m.length == 1 ? '0' : '')+m+"/"+d.getFullYear()+" "+(h.length == 1 ? '0' : '')+h+":"+(i.length == 1 ? '0' : '')+i;
+      };
+
+      viewModel.newEdit = function(shorttmplname) {
+        console.log("new", this, template);
+        var d = new Date();
+        var rnd = Math.random().toString(36).substr(2, 7);
+        var template = 'templates/'+shorttmplname+'/template-'+shorttmplname+'.html';
+        viewModel.edits.unshift({ created: Date.now(), key: rnd, name: shorttmplname, template: template });
+        document.location = 'editor.html?0.17.4#'+rnd;
+        // { data: 'AAAA-MM-GG', key: 'ABCDE' }
+        // viewModel.edits.push(template);
+      };
+      viewModel.renameEdit = function(index) {
+        var newName = window.prompt("Modifica nome", viewModel.edits()[index].name);
+        if (newName) {
+          var newItem = JSON.parse(ko.toJSON(viewModel.edits()[index]));
+          newItem.name = newName;
+          viewModel.edits.splice(index, 1, newItem);
+        }
+        return false;
+      };
+      viewModel.deleteEdit = function(index) {
+        var confirm = window.confirm("Are you sure you want to delete this content?");
+        if (confirm) {
+          var res = viewModel.edits.splice(index, 1);
+          console.log("removing template ", res);
+          localStorage.removeItem('template-'+res[0].key);
+        }
+        return false;
+      };
+      viewModel.list = function(clean) {
+        for (var i = localStorage.length - 1; i >= 0; i--) {
+          var key = localStorage.key(i);
+          if (clean) {
+            console.log("removing ", key, localStorage.getItem(key));
+            localStorage.removeItem(key);
+          } else {
+            console.log("ls ", key, localStorage.getItem(key));
+          }
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded',function(){
+        ko.applyBindings(viewModel);
+      });
+    </script>
+</head>
+
+<body class="box-layout">
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+    <div id="wrapper" class="wrapper">
+        <!-- Header Area Start Here -->
+        <header id="header_1">
+            <div class="header-menu-area header-menu-layout2 box-layout-child">
+                <div class="full-width-container">
+                    <div class="row no-gutters d-flex align-items-center">
+                        <div class="col-lg-2 col-md-2 d-flex justify-content-start">
+                            <div class="logo-area">
+                                <a href="index.html" class="temp-logo">
+                                    <img src="img/logo.png" alt="logo" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 d-flex justify-content-center possition-static">
+                            <div class="template-main-menu">
+                                <nav id="dropdown">
+                                    <ul>
+                                        <li>
+                                            <a href="index.html">HOME</a>
+                                            <ul class="dropdown-menu-col-2">
+                                                <li>
+                                                    <a href="#" data-bind="click: $root.newEdit.bind(undefined, 'tutorial'), attr: { href: 'editor.html?0.17.4#templates/tutorial/template-tutorial.html' }">Editor</a>
+                                                    <a href="index2.html">Home 2</a>
+                                                    <a href="index3.html">Home 3</a>
+                                                    <a href="index4.html">Home 4</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index5.html">Home 5</a>
+                                                    <a href="index6.html">Home 6</a>
+                                                    <a href="index7.html">Home 7</a>
+                                                    <a href="index8.html">Home 8</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Fanbook 보내기</a>
+                                            <ul class="dropdown-menu-col-1">
+                                                <li>
+                                                    <a href="#" data-bind="click: $root.newEdit.bind(undefined, 'tutorial'), attr: { href: 'editor.html?0.17.4#templates/tutorial/template-tutorial.html' }">News letter</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">전시, 공연</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">의정보고서</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">우리가게 홍보하기</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">서비스 소개</a>
+                                            <ul class="dropdown-menu-col-1">
+                                                <li>
+                                                    <a href="service.html">주요 기능</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">템플릿 디자인</a>
+                                                </li>
+                                                <li>
+                                                    <a href="manual.html">사용 메뉴얼</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="signup.html">회원 가입</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">고객센터</a>
+                                            <ul class="dropdown-menu-col-1">
+                                                <li>
+                                                    <a href="">Q&A</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">1:1문의</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">공지사항</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="my_service.html">My 서비스</a>
+                                            <ul class="dropdown-menu-col-1">
+                                                <li>
+                                                    <a href="">발송내역</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">회원 정보 현황</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 d-flex justify-content-end">
+                            <div class="navigation-menu">
+                                <ul>
+                                    <li class="header-search-box btn-color-dark">
+                                        <a href="#header-search" title="Search">
+                                            <i class="flaticon-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="offcanvas-menu-wrap">
+                                        <button type="button" class="offcanvas offcanvas-menu-btn offcanvas-btn-dark menu-status-open">
+                                            <span class="menu-btn-icon">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header Area End Here -->
+        <!-- Inne Page Banner Area Start Here -->
+        <section class="inner-page-banner bg-common inner-page-margin" data-bg-image="img/figure/banner.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumbs-area">
+                            <h1>주요기능설명</h1>
+                            <ul>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>introduction</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Inne Page Banner Area End Here -->
+        <!-- Blog Area End Here -->
+       <section class="blog-wrap-layout5">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="blog-box-layout6">
+                        <div class="item-img">
+                           <a href="single-blog1.html"><img src="img/blog/blog14.jpg" alt="Blog"></a>
+                        </div>
+                        <div class="item-content">
+                            <ul class="entry-meta">
+                                <li>June 23, 2018</li>
+                                <li><a href="#">Branding</a><a href="#">Logo</a></li>
+                            </ul>
+                            <h2 class="item-title"><a href="single-blog1.html">Here the old man launched area into a disuisition here
+                            being beautiful is about singing even loudly</a></h2>
+                            <p>Portfo quntum imperdiet Deartuis sagittis are ipsum Praesent mauris fusce nec tellus
+                            sedye augue semper porta.Lorem ipsum dolor sit amet, consectetu de adipi scing elit,
+                            sed do eiusmod tempor inci didunt uttery labore et dolor magna et aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercita ulamco labori nisi aliquip ex ea commodo consequat eprehender.</p>
+                            <a href="single-blog1.html" class="item-btn">Continue Reading
+                                <i class="flaticon-next"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-box-layout6">
+                        <div class="item-img">
+                          <a href="single-blog1.html"><img src="img/blog/blog15.jpg" alt="Blog"></a>
+                        </div>
+                        <div class="item-content">
+                            <ul class="entry-meta">
+                                <li>June 23, 2018</li>
+                                <li><a href="#">Branding</a><a href="#">Logo</a></li>
+                            </ul>
+                            <h2 class="item-title"><a href="single-blog1.html">Here the old man launched area into a disuisition here
+                            being beautiful is about singing even loudly</a></h2>
+                            <p>Portfo quntum imperdiet Deartuis sagittis are ipsum Praesent mauris fusce nec tellus
+                            sedye augue semper porta.Lorem ipsum dolor sit amet, consectetu de adipi scing elit,
+                            sed do eiusmod tempor inci didunt uttery labore et dolor magna et aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercita ulamco labori nisi aliquip ex ea commodo consequat eprehender.</p>
+                            <a href="single-blog1.html" class="item-btn">Continue Reading
+                                <i class="flaticon-next"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-box-layout6">
+                        <div class="item-img">
+                           <a href="single-blog1.html"><img src="img/blog/blog16.jpg" alt="Blog"></a>
+                        </div>
+                        <div class="item-content">
+                            <ul class="entry-meta">
+                                <li>June 23, 2018</li>
+                                <li><a href="#">Branding</a><a href="#">Logo</a></li>
+                            </ul>
+                            <h2 class="item-title"><a href="single-blog1.html">Here the old man launched area into a disuisition here
+                            being beautiful is about singing even loudly</a></h2>
+                            <p>Portfo quntum imperdiet Deartuis sagittis are ipsum Praesent mauris fusce nec tellus
+                            sedye augue semper porta.Lorem ipsum dolor sit amet, consectetu de adipi scing elit,
+                            sed do eiusmod tempor inci didunt uttery labore et dolor magna et aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercita ulamco labori nisi aliquip ex ea commodo consequat eprehender.</p>
+                            <a href="single-blog1.html" class="item-btn">Continue Reading
+                                <i class="flaticon-next"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-box-layout6">
+                        <div class="item-img">
+                           <a href="single-blog1.html"><img src="img/blog/blog17.jpg" alt="Blog"></a>
+                        </div>
+                        <div class="item-content">
+                            <ul class="entry-meta">
+                                <li>June 23, 2018</li>
+                                <li><a href="#">Branding</a><a href="#">Logo</a></li>
+                            </ul>
+                            <h2 class="item-title"><a href="single-blog1.html">Here the old man launched area into a disuisition here
+                            being beautiful is about singing even loudly</a></h2>
+                            <p>Portfo quntum imperdiet Deartuis sagittis are ipsum Praesent mauris fusce nec tellus
+                            sedye augue semper porta.Lorem ipsum dolor sit amet, consectetu de adipi scing elit,
+                            sed do eiusmod tempor inci didunt uttery labore et dolor magna et aliqua. Ut enim ad minim
+                            veniam, quis nostrud exercita ulamco labori nisi aliquip ex ea commodo consequat eprehender.</p>
+                            <a href="single-blog1.html" class="item-btn">Continue Reading
+                                <i class="flaticon-next"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- <div class="pagination-layout2 margin-b-30 d-flex justify-content-center">
+                        <ul>
+                            <li><a href="#">01</a></li>
+                            <li><a href="#">02</a></li>
+                            <li><a href="#" class="active">03</a></li>
+                            <li><a href="#">04</a></li>
+                        </ul>
+                    </div>  -->
+                </div>
+                <!-- <div class="col-xl-3 col-lg-4 col-12 sidebar-widget-area sidebar-break-md">
+                    <div class="widget widget-search-box">
+                        <div class="input-group stylish-input-group">
+                            <input type="text" class="form-control" placeholder="Search here . . .">
+                            <span class="input-group-addon">
+                                <button type="submit">
+                                    <span class="flaticon-search" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="widget widget-category">
+                        <div class="section-header header-dark heading-layout3">
+                            <h3>Categories</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>Product</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>Digital Marketing</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>Branding</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>Box</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>Real Estate</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>Technology</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget widget-recent-blog">
+                        <div class="section-header header-dark heading-layout3">
+                            <h3>Latest News</h3>
+                        </div>
+                        <div class="media">
+                            <div class="item-img">
+                                <a href="#">
+                                    <img src="img/blog/blog7.jpg" alt="News">
+                                </a>
+                            </div>
+                            <div class="media-body space-sm">
+                                <h5 class="post-title">
+                                    <a href="#">Page Builder blog grow 2018</a>
+                                </h5>
+                                <div class="post-date">23 June, 2018</div>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="item-img">
+                                <a href="#">
+                                    <img src="img/blog/blog7.jpg" alt="News">
+                                </a>
+                            </div>
+                            <div class="media-body space-sm">
+                                <h5 class="post-title">
+                                    <a href="#">Page Builder blog grow 2018</a>
+                                </h5>
+                                <div class="post-date">23 June, 2018</div>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="item-img">
+                                <a href="#">
+                                    <img src="img/blog/blog7.jpg" alt="News">
+                                </a>
+                            </div>
+                            <div class="media-body space-sm">
+                                <h5 class="post-title text-row-2">
+                                    <a href="#">Page Builder blog grow 2018</a>
+                                </h5>
+                                <div class="post-date">23 June, 2018</div>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="item-img">
+                                <a href="#">
+                                    <img src="img/blog/blog7.jpg" alt="News">
+                                </a>
+                            </div>
+                            <div class="media-body space-sm">
+                                <h5 class="post-title">
+                                    <a href="#">Page Builder blog grow 2018</a>
+                                </h5>
+                                <div class="post-date">23 June, 2018</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget widget-archives">
+                        <div class="section-header header-dark heading-layout3">
+                            <h3>Archives</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>July 2018
+                                    <span>(15)</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>August 2018
+                                    <span>(20)</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>October 2018
+                                    <span>(10)</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-angle-right"></i>November 2018
+                                    <span>(05)</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget widget-tag">
+                        <div class="section-header header-dark heading-layout3">
+                            <h3>Tags</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#">Advertising</a>
+                            </li>
+                            <li>
+                                <a href="#">Electonics</a>
+                            </li>
+                            <li>
+                                <a href="#">Food</a>
+                            </li>
+                            <li>
+                                <a href="#">Mobile</a>
+                            </li>
+                            <li>
+                                <a href="#">Social</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+       </section>
+        <!-- Blog Area End Here -->
+        <!-- Footer Area End Here -->
+        <footer class="footer-wrap-layout1">
+            <div class="main-footer-wrap-layout1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="footer-box-layout1">
+                                <div class="footer-logo">
+                                    <a href="index.html">
+                                        <img src="img/footer-logo.png" alt="logo">
+                                    </a>
+                                </div>
+                                <div class="footer-contact-info">
+                                    <p>Zorem Ipsum is simply dummy text of the printing and typeset dustry orem Ipsum has been
+                                        taken.
+                                    </p>
+                                    <ul>
+                                        <li>info@zugan.com</li>
+                                        <li>+ 88 222 02020</li>
+                                        <li>+ 5960 550000</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="footer-box-layout1">
+                                <h3 class="footer-title">Useful Links</h3>
+                                <div class="footer-links">
+                                    <ul>
+                                        <li>
+                                            <a href="index.html">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="about1.html">About Us</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog1.html">Latest News</a>
+                                        </li>
+                                        <li>
+                                            <a href="single-portfolio1.html">Projects</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="footer-box-layout1">
+                                <h3 class="footer-title">Newsletter</h3>
+                                <form class="footer-form-box">
+                                    <div class="row">
+                                        <div class="col-12 form-group">
+                                            <input type="email" placeholder="Enter your e-mail" class="form-control" name="email" data-error="e-mail field is required"
+                                                required>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="col-12 form-group">
+                                            <button type="submit" class="item-btn">SUBMIT</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-response"></div>
+                                </form>
+                                <ul class="footer-social">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-behance"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-dribbble"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fab fa-google-plus-g"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-wrap">
+                <div class="copyright">© 2018 Zugan. All Rights Reserved.</div>
+            </div>
+        </footer>
+        <!-- Footer Area End Here -->
+        <!-- Search Box Start Here -->
+        <div id="header-search" class="header-search">
+            <button type="button" class="close">×</button>
+            <form class="header-search-form">
+                <input type="search" value="" placeholder="Type here........" />
+                <button type="submit" class="search-btn">
+                    <i class="flaticon-search"></i>
+                </button>
+            </form>
+        </div>
+        <!-- Search Box End Here -->
+        <!-- Offcanvas Menu Start -->
+        <ul class="offcanvas-navigation">
+            <li>
+                <a href="#">Fanbook 보내기</a>
+            </li>
+            <li>
+                <a href="mainpage.html">Home</a>
+            </li>
+            <li>
+                <a href="about1.html">서비스 소개</a>
+            </li>
+            <li>
+                <a href="blog1.html">고객센터</a>
+            </li>
+            <li>
+                <a href="single-portfolio1.html">My 서비스</a>
+            </li>
+        </ul>
+        <svg class="shape-overlays" viewBox="0 0 20 100" preserveAspectRatio="none">
+            <path class="shape-overlays__path" d="M 0 100 C 50 100 50 100 100 100 V 100 H 0"></path>
+            <path class="shape-overlays__path" d="M 0 100 C 50 100 50 100 100 100 V 100 H 0"></path>
+            <path class="shape-overlays__path" d="M 0 100 C 50 100 50 100 100 100 V 100 H 0"></path>
+        </svg>
+        <!-- Offcanvas Menu End -->
+    </div>
+    <!-- jquery-->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Counterup Js -->
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Waypoints Js -->
+    <script src="js/waypoints.min.js"></script>
+    <!-- Parallaxie Js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- Countdown js -->
+    <script src="js/jquery.countdown.min.js"></script>
+    <!-- Nivo slider js -->
+    <script src="vendor/slider/js/jquery.nivo.slider.js"></script>
+    <script src="vendor/slider/home.js"></script>
+    <!-- Owl Carousel Js -->
+    <script src="vendor/OwlCarousel/owl.carousel.min.js"></script>
+    <!-- Meanmenu Js -->
+    <script src="js/jquery.meanmenu.min.js"></script>
+    <!-- Magnific Popup Js -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Isotope Js -->
+    <script src="js/isotope.pkgd.min.js"></script>
+    <!-- Imagesloaded Js -->
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <!-- Scroll Up Js -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- Tilt Js -->
+    <script src="js/tilt.jquery.min.js"></script>
+    <!-- offcanvas Js -->
+    <script src="js/rt-canvas-menu.js"></script>
+    <!-- smoothscroll Js -->
+    <script src="js/jquery.smoothscroll.min.js"></script>
+    <!-- Custom Js -->
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

@@ -178,7 +178,6 @@
             
             $('.tui-image-editor-Save-btn').off("click").on("click", function() {
               var extension = imageUrl.split('.').pop();
-              console.log(extension);
               var image = $('.lower-canvas')[0].toDataURL('image/jpeg');
               $.ajax({
                 type: "post",
@@ -189,15 +188,13 @@
                 },
                 success: function(result) {
                   alert("저장 완료")
-                  viewModel.remoteUrlProcessor(imageUrl);
+                  src(result.url);
+                  viewModel.loadImage(result);
                 },
                 error: function(result) {
-                  console.log(result);
                   alert("서버에 문제가 발생하였습니다. 관리자에게 문의하세요.");
                 }
               });
-              
-              console.log(image);
             })
           }
         })
@@ -252,10 +249,10 @@
                 },
                 success: function(result) {
                   alert("저장 완료")
-                  viewModel.remoteUrlProcessor(imageUrl);
+                  src(result.url);
+                  viewModel.loadImage(result);
                 },
                 error: function(result) {
-                  console.log(result);
                   alert("서버에 문제가 발생하였습니다. 관리자에게 문의하세요.");
                 }
               });
