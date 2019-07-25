@@ -105,7 +105,6 @@
     <script type="text/javascript" src="./js/theme/black-theme.js"></script>
     <script>
       function initImageEidtor(imageUrl) {
-        console.error(imageUrl);
         var imageEditor = new tui.ImageEditor("#tui-image-editor-container", {
           includeUI: {
             loadImage: {
@@ -123,10 +122,8 @@
         console.log($('.tui-image-editor-header-buttons .tui-image-editor-download-btn'));
         $('.tui-image-editor-header-buttons .tui-image-editor-download-btn').replaceWith('<button class="tui-image-editor-Save-btn" >Save</button>')
         $('.tui-image-editor-close-btn').off("click").on("click", function(){
-          console.error(imageEditor);
           imageEditor.destroy()
           $('.tui-image-editor-container').empty().removeAttr("style").removeClass("tui-image-editor-container bottom");
-          console.error("after destroy: ", imageEditor);
         });
         $('.tui-image-editor-container').css("z-index", 5001);
 
@@ -178,7 +175,6 @@
             
             $('.tui-image-editor-Save-btn').off("click").on("click", function() {
               var extension = imageUrl.split('.').pop();
-              console.log(extension);
               var image = $('.lower-canvas')[0].toDataURL('image/jpeg');
               $.ajax({
                 type: "post",
@@ -189,15 +185,14 @@
                 },
                 success: function(result) {
                   alert("저장 완료")
-                  viewModel.remoteUrlProcessor(imageUrl);
+                  src(result.url);
+                  viewModel.loadImage(result);
                 },
                 error: function(result) {
                   console.log(result);
                   alert("서버에 문제가 발생하였습니다. 관리자에게 문의하세요.");
                 }
               });
-              
-              console.log(image);
             })
           }
         })
@@ -241,7 +236,6 @@
             var tuiEditor = initImageEidtor(imageUrl);
             $('.tui-image-editor-Save-btn').off("click").on("click", function() {
               var extension = imageUrl.split('.').pop();
-              console.log(extension);
               var image = $('.lower-canvas')[0].toDataURL('image/jpeg');
               $.ajax({
                 type: "POST",
@@ -252,7 +246,8 @@
                 },
                 success: function(result) {
                   alert("저장 완료")
-                  viewModel.remoteUrlProcessor(imageUrl);
+                  src(result.url);
+                  viewModel.loadImage(result);
                 },
                 error: function(result) {
                   console.log(result);
@@ -260,7 +255,6 @@
                 }
               });
               
-              console.log(image);
             })
           }
         })
